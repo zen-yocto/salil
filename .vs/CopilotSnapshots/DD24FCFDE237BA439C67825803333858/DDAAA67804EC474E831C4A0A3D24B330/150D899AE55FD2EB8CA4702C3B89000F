@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
 	<head>
 		<meta charset="UTF-8">
@@ -113,53 +113,7 @@
 				</div>
 			</section>
 
-			<!-- Engineering Soft Skills Cards -->
-			<section class="mb-16">
-				<h2 class="text-xs uppercase tracking-widest text-emerald-400 font-bold mb-6 flex items-center gap-2">
-					<i class="fa-solid fa-users-gear"></i> Engineering Practice & Collaboration
-				</h2>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-					<!-- Soft Skill Card 1 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-bug-slash text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Problem Solving & Debugging</h3>
-						<p class="text-xs text-slate-400 mb-4">Root-cause analysis for complex hardware-software bugs and system latency.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Root-Cause Analysis</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">System Optimization</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Fault Isolation</span>
-						</div>
-					</div>
-					<!-- Soft Skill Card 2 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-amber-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-handshake-angle text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Cross-Functional Collaboration</h3>
-						<p class="text-xs text-slate-400 mb-4">Partnering with quality, calibration, and assembly teams for production yield.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Cross-Team Work</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Quality Assurance</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Production Support</span>
-						</div>
-					</div>
-					<!-- Soft Skill Card 3 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-indigo-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-diagram-project text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Workflow & Documentation</h3>
-						<p class="text-xs text-slate-400 mb-4">Process automation, technical reporting, and knowledge transfer across SMEs.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Technical Writing</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Process Automation</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Knowledge Transfer</span>
-						</div>
-					</div>
-				</div>
-			</section>
+
 			<!-- Visual Featured Projects -->
 			<section class="mb-16">
 				<h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6 flex items-center gap-2">
@@ -167,8 +121,10 @@
 				</h2>
 
 				<div class="grid grid-cols-1 gap-8">
+
 					<!-- Project Card 1 -->
 					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
+						
 						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-blue-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
 							<span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-1 rounded w-fit">
 								Commercial Deployed (€1M+)
@@ -179,7 +135,6 @@
 							</div>
 							<div class="text-[11px] font-mono text-slate-500">Target: ARM Cortex-M4</div>
 						</div>
-
 						<div class="md:col-span-8 p-6 flex flex-col justify-between">
 							<div>
 								<div class="pr-10">
@@ -188,60 +143,43 @@
 								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Optimized RTOS task execution and interrupt routines to completely eliminate UI button latency.
+										Restructured RTOS task priorities and interrupt routines to eliminate UI button latency.
 									</li>
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Engineered a fully configurable GUI menu system with high-resolution display firmware in C and FreeRTOS.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Created custom Modbus registers for real-time data exchange, telemetry monitoring, and remote configuration.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Developed active power demand and Time-of-Use (TOU) energy calculation algorithms for Peak, Sharp, Valley, and Normal tariff bands.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Built robust automatic data recovery mechanisms in non-volatile memory to prevent information loss during power outages.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Implemented a TOU chart engine supporting over 100 user-configurable parameters with integrated automatic error checking and correction suggestions.
+										Engineered high-resolution display firmware using C and FreeRTOS.
 									</li>
 								</ul>
-
 								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
 									<p class="text-slate-400 text-xs leading-relaxed mb-4">
 										Designed time-of-use and average power demand graph rendering on ARM Cortex-M4 smart meters deployed in the German industrial market.
 									</p>
 									<div class="grid grid-cols-2 gap-3 mb-4">
 										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p1-1.png" alt="PCB Diagram Layout" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge="">
-					</div>
+										<img src="asset/p1-1.png" alt="PCB Diagram Layout" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge>
+										</div>
 										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p1-2.png" alt="Smart Meter UI Screen" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge="">
-					</div>
+											<img src="asset/p1-2.png" alt="Smart Meter UI Screen" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge>
+										</div>
 									</div>
 								</div>
 							</div>
-
 							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
 								<div class="flex flex-wrap gap-2">
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">FreeRTOS</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Embedded C</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Modbus RTU</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">TOU Engines</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Smart Metering</span>
 								</div>
+								<!-- expand icon removed: details are permanently visible -->
 							</div>
 						</div>
 					</div>
+
 					<!-- Project Card 2 -->
 					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
+						
 						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-teal-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
-							<span class="text-[10px] font-mono text-teal-400 bg-teal-500/10 border border-blue-500/20 px-2 py-1 rounded w-fit">
+							<span class="text-[10px] font-mono text-teal-400 bg-teal-500/10 border border-teal-500/20 px-2 py-1 rounded w-fit">
 								4-Layer Hardware Design
 							</span>
 							<div class="my-auto text-center py-4">
@@ -250,7 +188,6 @@
 							</div>
 							<div class="text-[11px] font-mono text-slate-500">Tool: Altium / KiCAD</div>
 						</div>
-
 						<div class="md:col-span-8 p-6 flex flex-col justify-between">
 							<div>
 								<div class="pr-10">
@@ -259,56 +196,41 @@
 								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Achieved reliable 115.2 Kbps data speeds with 2.5kV galvanic isolation using high-performance digital isolators and isolated DC-DC converters.
+										Achieved high-speed data transmission up to 115.2 Kbps with full electrical isolation.
 									</li>
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Protected connected laptops and host USB controllers from severe industrial ground loops, high-voltage spikes, and transient surges.
-									</li>
-							
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Enforced strict 4mm isolation gap creepage and clearance rules across the isolation barrier to maintain safety and compliance standards.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Utilized dedicated internal ground and power planes to minimize electromagnetic interference (EMI) and maintain clear signal integrity.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Executed thorough DFM and DRC analysis in Altium to guarantee high manufacturing yield and long-term hardware field reliability.
+										Created custom footprints and high-density routing in an ultra-compact enclosure.
 									</li>
 								</ul>
-
-								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
+							<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
 									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										This hardware solves the critical safety challenge of connecting consumer USB ports to noisy, high-voltage industrial RS232 equipment. A 4-layer PCB architecture was necessary to manage power plane routing for both the isolated and non-isolated sides while strictly maintaining safe creepage and clearance distances. Digital isolators were preferred over optocouplers to provide the speed and longevity required for a high-performance, robust field tool.
+										High-density 4-layer PCB design featuring complete galvanic isolation to protect downstream microcontrollers from high-voltage transients.
 									</p>
 									<div class="grid grid-cols-2 gap-3 mb-4">
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p4-1.png" alt="PCB of converter" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-					</div>
+							<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
+								<img src="asset/p4-1.png" alt="PCB of converter" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
+								</div>
 										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
 											<img src="asset/p4-2.png" alt="Testing converter" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-					</div>
 									</div>
 								</div>
+								</div>
 							</div>
-
 							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
 								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Altium/KiCAD</span>
+									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Altium</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Galvanic Isolation</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">RS232/TTL</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">4-Layer PCB</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Signal Integrity</span>
 								</div>
+								<!-- expand icon removed: details are permanently visible -->
 							</div>
 						</div>
 					</div>
 
 					<!-- Project Card 3 -->
 					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
+						
 						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-purple-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
 							<span class="text-[10px] font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-1 rounded w-fit">
 								Assembly Automation
@@ -319,7 +241,6 @@
 							</div>
 							<div class="text-[11px] font-mono text-slate-500">Accuracy: 95% Fault Detection</div>
 						</div>
-
 						<div class="md:col-span-8 p-6 flex flex-col justify-between">
 							<div>
 								<div class="pr-10">
@@ -328,39 +249,36 @@
 								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-purple-400 mt-0.5"></i>
-										Developed production-line test rig software in C++ on ESP32, capable of automatically diagnosing WS2812 LED bar graph faults and validating correct assembly.
+										Production-line test rig in C++ diagnosing WS2812 LED bar graphs.
 									</li>
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-purple-400 mt-0.5"></i>
-										Engineered a robust system using an internal ESP32 logic with an external hardware Watchdog Timer (WDT), cutting production downtime by 40% due to automated system recovery without human intervention.
+										Implemented a hardware Watchdog Timer (WDT) cutting production downtime by 40%.
 									</li>
-		
 								</ul>
-
 								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
 									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										Custom FreeCAD 3D-printed mechanical contact fixture paired with automated microcontroller QA firmware for high-throughput factory manufacturing lines. The design of the custom mechanical interface was critical, using pogo pins to provide reliable, non-destructive electrical connections to the Unit Under Test (UUT).
+										Custom FreeCAD 3D-printed mechanical contact fixture paired with automated microcontroller QA firmware for high-throughput factory manufacturing lines.
 									</p>
+									
 								</div>
 							</div>
-
 							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
 								<div class="flex flex-wrap gap-2">
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">ESP32</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">FreeCAD</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Automated QA</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Watchdog (WDT)</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Mechanical Fixture</span>
 								</div>
+								<!-- expand icon removed: details are permanently visible -->
 							</div>
 						</div>
 					</div>
-					<!-- Project Card 4: STM32 + DHT22 + ENC28J60 + MQTT -->
+
+					<!-- Project 4: STM32 + DHT22 + ENC28J60 + MQTT -->
 					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
 						<a href="https://github.com/zen-yocto/stm32-ethernet-mqtt" target="_blank" class="absolute top-4 right-4 z-20 text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 p-2 rounded-full border border-slate-700/80 transition" title="View on GitHub">
 							<i class="fa-brands fa-github text-base"></i>
 						</a>
-
 						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-emerald-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
 							<span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded w-fit">
 								Industrial IoT Gateway
@@ -371,7 +289,6 @@
 							</div>
 							<div class="text-[11px] font-mono text-slate-500">Protocol: MQTT Telemetry</div>
 						</div>
-
 						<div class="md:col-span-8 p-6 flex flex-col justify-between">
 							<div>
 								<div class="pr-10">
@@ -380,44 +297,41 @@
 								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
-										Engineered bare-metal and FreeRTOS-compatible C drivers from scratch to interface an STM32 with a DHT22 precision temperature/humidity sensor using an ultra-low-level, custom bit-banging approach for timing-critical accuracy.
+										Engineered bare-metal/FreeRTOS drivers to interface an STM32 with a DHT22 precision temperature/humidity sensor.
 									</li>
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
-										Integrated an ENC28J60 Ethernet controller via high-speed SPI, implementing non-blocking SPI frame processing to handle concurrent MQTT packet transmission and sensor acquisition without CPU stall.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
-										Optimized the entire node for low-latency MQTT publication of time-stamped environmental telemetry to an industrial broker, designed for stable 24/7 operation in harsh noise environments where wired connectivity is required.
+										Integrated ENC28J60 Ethernet controller via high-speed SPI with lightweight TCP/IP network stack.
 									</li>
 								</ul>
-
 								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
 									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										Built a high-reliability wired industrial monitoring node to provide stable telemetry where Wi-Fi is inadequate. A dedicated STM32 ARM Cortex core is essential to manage the real-time sensor bit-banging, the parallel SPI network traffic, and the MQTT protocol stack simultaneously. The ENC28J60 Ethernet controller, connected over a specialized high-throughput SPI interface, offers a robust and cost-effective wired connectivity solution optimized for low-latency datalogging in demanding environmental scenarios.
+										Built a low-latency wired industrial monitoring node transmitting real-time environmental telemetry to an MQTT broker. Integrated custom single-wire bit-banging for DHT22 timing accuracy and non-blocking SPI frame processing for packet transmission.
 									</p>
 									<div class="grid grid-cols-2 gap-3 mb-4">
 										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p2-1.png" alt="NUCLEO-SMT32F411 Circuit realization" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge="">
-					</div>
+										<img src="asset/p2-1.png" alt="PCB Diagram Layout" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge>
+										</div>
 										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p2-2.png" alt="Wireshark Capture" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge="">
-					</div>
+											<img src="asset/p2-2.png" alt="Smart Meter UI Screen" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge>
+										</div>
 									</div>
 								</div>
 							</div>
-
 							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
 								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">STM32 (Cortex-M)</span>
+									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">STM32</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">ENC28J60</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">MQTT / TCP/IP</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Non-blocking SPI</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Datalogging</span>
+									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">MQTT</span>
+									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">DHT22</span>
 								</div>
+								<span class="expand-icon text-xs text-slate-500 group-hover:text-slate-300 flex items-center gap-1">
+									<i class="fa-solid fa-chevron-down text-xs transition-transform duration-200"></i>
+								</span>
 							</div>
 						</div>
 					</div>
+
 					<!-- Project 5: Raspberry Pi 3A+ Yocto Kiosk -->
 					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
 						<a href="https://github.com/zen-yocto/rpi-kiosk-yocto-rauc" target="_blank" class="absolute top-4 right-4 z-20 text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 p-2 rounded-full border border-slate-700/80 transition" title="View on GitHub">
@@ -469,13 +383,16 @@
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">RPi 3A+</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Flask / SQLite</span>
 								</div>
-								
+								<span class="expand-icon text-xs text-slate-500 group-hover:text-slate-300 flex items-center gap-1">
+									<i class="fa-solid fa-chevron-down text-xs transition-transform duration-200"></i>
+								</span>
 							</div>
 						</div>
 					</div>
 
 					<!-- Project 6: KiCad & OrCAD Design -->
 					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
+						
 						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-amber-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
 							<span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-1 rounded w-fit">
 								Multi-Layer CAD / EDA
@@ -489,47 +406,48 @@
 						<div class="md:col-span-8 p-6 flex flex-col justify-between">
 							<div>
 								<div class="pr-10">
-									<h3 class="text-xl font-bold text-white mb-2">Arduino Uno PCB & Advanced Custom Clones</h3>
+									<h3 class="text-xl font-bold text-white mb-2">Custom Multi-Layer Electronics & Hardware Designs</h3>
 								</div>
 								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-										Designed a standard reference Arduino Uno PCB along with an enhanced standalone Arduino clone featuring an integrated I2C EEPROM for non-volatile data storage.
+										Designed multi-layer PCB schematics and board layouts using KiCAD EDA and OrCAD Capture.
 									</li>
 									<li class="flex items-start gap-2">
 										<i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-										Engineered a Battery-Powered Arduino Clone equipped with an extended EEPROM IC and an onboard Real-Time Clock (RTC) for precise, low-power time-stamped datalogging.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-										Ensured signal integrity routing for serial buses, and generated industrial manufacturing Gerber files following strict DFM and DRC guidelines.
+										Performed PSpice circuit simulations, signal integrity checks, and generated industrial manufacturing Gerber outputs.
 									</li>
 								</ul>
-								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
+				<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
 									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										Developed custom schematic captures and multi-layer PCB layouts using KiCAD and OrCAD. The designs feature an ATmega328P core, optimized power supply rail decoupling, precision crystal oscillators, dedicated battery management circuitry, and external I2C EEPROM/RTC modules tailored for standalone and low-power autonomous operations.
+										Developed hardware schematics, controlled-impedance trace routing, power distribution networks, and custom component library footprints compliant with DFM (Design for Manufacturing) and DRC rules.
 									</p>
 									<div class="grid grid-cols-2 gap-3 mb-4">
 										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p5-1.png" alt="PCB Arduino Uno in OrCAD Capture" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-					</div>
+											<img src="asset/p5-1.png" alt="PCB arduino uno in Orcad Capture" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
+</div>
 										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p5-2.png" alt="Battery Powered Arduino Clone with EEPROM and Clock in KiCAD" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-					</div>
+											<img src="asset/p5-2.png" alt="PCB BMS in KiCAD" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
+</div>
 									</div>
 								</div>
 							</div>
 							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
 								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Arduino PCB</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">ATmega328P</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">EEPROM / RTC</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">KiCAD & OrCAD</span>
+									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">KiCAD</span>
+									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">OrCAD PCB</span>
+									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">PSpice</span>
 									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Gerber/DFM</span>
 								</div>
+								<span class="expand-icon text-xs text-slate-500 group-hover:text-slate-300 flex items-center gap-1">
+									<i class="fa-solid fa-chevron-down text-xs transition-transform duration-200"></i>
+								</span>
 							</div>
 						</div>
 					</div>
+
+				</div>
+			</section>
 
 			<!-- Work Experience Section -->
 			<section class="mb-16">
@@ -585,7 +503,7 @@
 					<!-- Role 2 -->
 					<div class="pt-6">
 						<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-							<h4 class="text-base font-semibold text-white">Production Support (Part Time)</h4>
+							<h4 class="text-base font-semibold text-white">Production Support Engineer</h4>
 							<span class="text-xs font-mono text-slate-500">2022 — 2023</span>
 						</div>
 						<ul class="text-xs text-slate-300 space-y-2">
@@ -611,16 +529,14 @@
 
 					<!-- Master's Degree Card -->
 					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-3">
-						<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-							<h4 class="text-base font-semibold text-white flex items-center gap-3">
-								<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0" viewBox="0 0 64 64" role="img" aria-label="University of Zielona Gora logo">
-									<circle cx="32" cy="32" r="30" fill="#0ea5a4" />
-									<text x="32" y="37" text-anchor="middle" font-size="20" font-family="sans-serif" fill="#07203a">UZ</text>
-								</svg>
-								<span>University of Zielona Gora — Zielona Gora, Poland</span>
-							</h4>
+						<h3 class="font-semibold text-white flex items-center gap-3">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0" viewBox="0 0 64 64" role="img" aria-label="University of Zielona Gora logo">
+								<circle cx="32" cy="32" r="30" fill="#0ea5a4" />
+								<text x="32" y="37" text-anchor="middle" font-size="20" font-family="sans-serif" fill="#07203a">UZ</text>
+							</svg>
+							<span>University of Zielona Gora — Zielona Gora, Poland</span>
 							<span class="text-xs font-mono text-slate-500">2022 — 2023</span>
-						</div>
+						</h3>
 						<p class="text-slate-200 font-medium text-sm">Master of Engineering, Management and Production Engineering</p>
 						<p class="text-slate-400 text-sm">Graduated under full sponsorship from Lumel S.A.</p>
 						<p class="text-slate-400 text-sm">Thesis: The use of information technologies for knowledge management in small and medium-sized enterprises.</p>
@@ -659,16 +575,13 @@
 
 					<!-- Bachelor's Degree Card -->
 					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-3">
-						<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-							<h4 class="text-base font-semibold text-white flex items-center gap-3">
-								<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0" viewBox="0 0 64 64" role="img" aria-label="Medi-Caps University logo">
-									<rect x="4" y="4" width="56" height="56" rx="8" fill="#f97316" />
-									<text x="32" y="37" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#fff">MC</text>
-								</svg>
-								<span>Medi-Caps University — Indore, India</span>
-							</h4>
-							<span class="text-xs font-mono text-slate-500">2016 — 2020</span>
-						</div>
+						<h3 class="font-semibold text-white flex items-center gap-3">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0" viewBox="0 0 64 64" role="img" aria-label="Medi-Caps University logo">
+								<rect x="4" y="4" width="56" height="56" rx="8" fill="#f97316" />
+								<text x="32" y="37" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#fff">MC</text>
+							</svg>
+							<span>Medi-Caps University — Indore, India</span>
+						</h3>
 						<p class="text-slate-200 font-medium text-sm">Bachelor of Technology, Electrical and Electronics Engineering</p>
 						<p class="text-slate-400 text-sm">Graduated with Honors, specializing in Power Electronics.</p>
 						<p class="text-slate-400 text-sm">Thesis: Observation and control of smart grid using IoT and cloud technology.</p>
