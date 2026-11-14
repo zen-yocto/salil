@@ -1,795 +1,684 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
-	<head>
-		<meta charset="UTF-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<title>Salil Tiwari | Embedded Systems Engineer</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salil Tiwari | Embedded Systems Engineer</title>
+<meta name="description" content="Salil Tiwari, embedded systems engineer. ARM Cortex-M4 firmware, FreeRTOS, MQTT and PCB design for industrial smart meters sold across Europe.">
+<link rel="canonical" href="https://saliltiwari.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Salil Tiwari">
+<meta property="og:title" content="Salil Tiwari | Embedded Systems Engineer">
+<meta property="og:description" content="ARM Cortex-M4 firmware, FreeRTOS, MQTT and PCB design. Built smart meter firmware deployed in the German industrial market.">
+<meta property="og:url" content="https://saliltiwari.com/">
+<meta property="og:image" content="https://saliltiwari.com/asset/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Salil Tiwari, Embedded Systems Engineer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Salil Tiwari | Embedded Systems Engineer">
+<meta name="twitter:description" content="ARM Cortex-M4 firmware, FreeRTOS, MQTT and PCB design for industrial products.">
+<meta name="twitter:image" content="https://saliltiwari.com/asset/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Salil Tiwari","url":"https://saliltiwari.com/","jobTitle":"Embedded Systems Engineer","sameAs":["https://linkedin.com/in/salil-tiwari","https://github.com/zen-yocto"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Zielona Góra"},{"@type":"CollegeOrUniversity","name":"Medi-Caps University"}],"knowsAbout":["Embedded systems","ARM Cortex-M4","FreeRTOS","PCB design","MQTT","Modbus","Yocto Linux"]}</script>
+<meta name="theme-color" content="#ffffff">
 		<!-- Favicon / Title Icon Configuration -->
 		<link rel="icon" type="image/x-icon" href="asset/favicon.ico">
 		<link rel="icon" type="image/png" sizes="32x32" href="asset/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="asset/favicon-16x16.png">
 		<link rel="apple-touch-icon" sizes="180x180" href="asset/apple-touch-icon.png">
 		<link rel="manifest" href="asset/site.webmanifest">
-				<script src="https://cdn.tailwindcss.com"></script>
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-					<script>
-						tailwind.config = {
-						darkMode: 'class',
-						theme: {
-						extend: {
-						colors: {
-						brand: { 500: '#3b82f6', 600: '#2563eb' }
-						}
-						}
-						}
-						}
-					</script>
-				</head>
-	<body class="bg-slate-950 text-slate-200 antialiased selection:bg-blue-500 selection:text-white min-h-screen relative overflow-x-hidden">
+<style>
+:root{--bg:#fbf8f4;--surface:rgba(255,255,255,.72);--line:rgba(100,116,139,.17);--text:#0f1419;--muted:#4b5563;--copper:#047857;--cyan:#047857;--r:14px;
+--sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden}
+h1,h3,.meta,.lede{overflow-wrap:break-word}
+img{max-width:100%}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+section{padding:56px 0 8px}
+h2{font-size:1.5rem;letter-spacing:-.01em;margin-bottom:24px;display:flex;align-items:center;gap:14px}
+h2::after{content:"";height:1px;flex:1;background:var(--line)}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono)}
 
-		<!-- Subtle Ambient Glow Background -->
-		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-tr from-blue-600/15 to-teal-500/10 blur-[120px] pointer-events-none -z-10 rounded-full"></div>
+/* hero */
+.hero{position:relative;padding:72px 0 48px;overflow:hidden}
+.hero svg.traces{position:absolute;right:-40px;top:0;width:520px;max-width:80%;opacity:.5;pointer-events:none}
+.traces path{fill:none;stroke:var(--line);stroke-width:2;stroke-linejoin:round}
+.traces circle{fill:var(--bg);stroke:var(--copper);stroke-width:2}
+.traces .pulse{stroke:var(--copper);stroke-dasharray:14 400;animation:run 5s linear infinite}
+@keyframes run{to{stroke-dashoffset:-414}}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--cyan);border:1px solid var(--line);padding:5px 14px;border-radius:99px;background:var(--surface)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--cyan);animation:blink 2s infinite}
+@keyframes blink{50%{opacity:.25}}
+h1{font-size:clamp(2.8rem,9vw,5.6rem);line-height:1;letter-spacing:-.04em;margin:22px 0 14px;position:relative}
+.role{font-size:1.3rem;color:var(--copper);font-weight:600;position:relative}
+.lede{max-width:52ch;margin-top:12px;color:var(--muted);position:relative}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;position:relative}
+.btn{display:inline-block;padding:10px 20px;border-radius:10px;border:1px solid var(--line);background:var(--surface);text-decoration:none;font-weight:600;font-size:.92rem;transition:border-color .2s,transform .2s}
+.btn:hover{border-color:var(--copper)}
+.btn{display:inline-flex;align-items:center;gap:9px}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.primary{background:linear-gradient(135deg,#10b981,#8ea2ff);border-color:transparent;color:#04101c}
 
-		<div class="max-w-5xl mx-auto px-6 py-12">
+/* cards */
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.card h3{font-size:1.05rem;margin-bottom:6px}
+.card p{font-size:.9rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chips span{font:.75rem var(--mono);padding:3px 9px;border-radius:6px;background:var(--bg);border:1px solid var(--line);color:var(--muted)}
 
-			<!-- Hero / Header -->
-			<header class="mb-16 border-b border-slate-800/80 pb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-				<div>
-					<!-- Live Status Pill -->
-					<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-4">
-						<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-						Available for Embedded & Firmware Roles
-					</div>
-					<h1 class="text-4xl md:text-6xl font-black text-white tracking-tight mb-2 bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-						Salil Tiwari
-					</h1>
-					<p class="text-xl text-blue-400 font-semibold mb-3">Embedded Systems Engineer</p>
-					<p class="text-slate-400 text-sm max-w-xl leading-relaxed">
-						3+ years specializing in ARM Cortex-M4 microcontrollers, RTOS multitasking, and high-reliability PCB design.
-					</p>
-				</div>
+/* projects */
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:16px;overflow:hidden}
+.proj>summary{list-style:none;cursor:pointer;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:start}
+.proj>summary::-webkit-details-marker{display:none}
+.proj .tag{font:.78rem var(--mono);color:var(--cyan)}
+.proj h3{font-size:1.2rem;grid-column:1}
+.proj .meta{font:.8rem var(--mono);color:var(--muted);grid-column:1}
+.proj>summary:hover h3{color:var(--copper)}
+.body{padding:0 24px 24px;border-top:1px solid var(--line)}
+.body ul{font-size:.92rem;color:var(--text)}
+.body li{margin-bottom:6px}
+.body li::marker{color:var(--copper)}
+.body p.detail{margin-top:16px;font-size:.9rem;color:var(--muted);max-width:75ch}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px;margin-top:18px}
+.shots{perspective:900px}
+.shots img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--bg);cursor:zoom-in;
+opacity:0;transform:translateX(-140px) rotate(-5deg) scale(.9);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1),filter .2s;will-change:transform,opacity}
+.shots img:nth-child(even){transform:translateX(140px) rotate(5deg) scale(.9)}
+.shots img.vis{opacity:1;transform:none}
+.shots img:hover{filter:brightness(1.1)}
+.gh{position:absolute;top:20px;right:22px;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);background:var(--bg);transition:color .2s,border-color .2s}
+.gh:hover{color:var(--copper);border-color:var(--copper)}
+.gh svg{width:18px;height:18px;fill:currentColor}
+.proj{position:relative}
+.spr{position:absolute;top:16px;right:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:99px;border:1px solid var(--line);background:var(--bg);color:var(--muted);font-size:.82rem;font-weight:600;text-decoration:none;transition:color .2s,border-color .2s}
+.spr:hover{color:var(--copper);border-color:var(--copper)}
+.spr svg{width:22px;height:22px}
+.proj>summary{padding-right:70px}
+.links{margin-top:16px;font-size:.88rem}
+.links a{color:var(--copper)}
 
-				<div class="flex flex-col gap-3 w-full md:w-auto">
-					<a href="mailto:tsalil779@gmail.com" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold text-sm transition shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2">
-						<i class="fa-solid fa-envelope"></i> Contact Me
-					</a>
-					<div class="flex gap-2">
-						<a href="https://linkedin.com/in/salil-tiwari" target="_blank" class="flex-1 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl font-medium text-xs transition border border-slate-800 flex items-center justify-center gap-2">
-							<i class="fa-brands fa-linkedin text-blue-400"></i> LinkedIn
-						</a>
-						<a href="https://github.com/zen-yocto" target="_blank" class="flex-1 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded-xl font-medium text-xs transition border border-slate-800 flex items-center justify-center gap-2">
-							<i class="fa-brands fa-github text-slate-300"></i> GitHub
-						</a>
-					</div>
-				</div>
-			</header>
+/* timeline & misc */
+.logo{display:inline-flex;vertical-align:middle;margin-right:6px;text-decoration:none}
+.logo img{height:36px;width:auto;background:#fff;padding:5px 10px;border-radius:8px;border:1px solid var(--line);display:block}
+.logo-fallback{color:var(--text)}
+.logo:not(.nologo) .logo-fallback{display:none}
+.job{display:grid;gap:4px 24px;grid-template-columns:1fr auto;padding:18px 0;border-top:1px solid var(--line)}
+.job .date{order:2;text-align:right;white-space:nowrap}
+.job:first-of-type{border-top:0}
+.job h3{font-size:1.02rem}
+.job ul{margin:8px 0 0 18px;font-size:.9rem;color:var(--muted)}
+.job li{margin-bottom:4px}
+.date{font:.82rem var(--mono);color:var(--muted)}
+.edu h3{font-size:1.02rem}
+.edu .sub{font-size:.9rem;color:var(--muted);margin-top:4px}
+.abstract{font-size:.9rem;color:var(--muted);margin-top:8px;max-width:none}
+footer{margin:64px 0 40px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.85rem;color:var(--muted)}
+dialog{border:0;background:none;padding:0;max-width:94vw;max-height:94vh;margin:auto}
+dialog::backdrop{background:rgba(5,8,16,.88)}
+dialog img{max-width:94vw;max-height:90vh;border-radius:12px;display:block}
+@media(max-width:700px){
+.wrap{padding:0 18px}
+section{padding-top:44px}
+.hero{padding:48px 0 32px}
+.hero svg.traces{opacity:.28;right:-120px}
+h2{font-size:1.3rem}
+.card{padding:18px}
+.proj>summary{padding:18px 62px 18px 18px}
+.body{padding:0 18px 18px}
+.gh{top:14px;right:14px}
+.cta .btn{flex:1 1 140px;justify-content:center}
+}
+@media(max-width:560px){.spr{padding:6px}.spr span{display:none}#publications h3{padding-right:48px!important}}
+@media(max-width:380px){.proj h3{font-size:1.08rem}.date{font-size:.78rem}}
+@media(prefers-reduced-motion:reduce){.shots img{opacity:1!important;transform:none!important}*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-			<!-- Technical Skills Cards -->
-			<section class="mb-16">
-				<h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6 flex items-center gap-2">
-					<i class="fa-solid fa-microchip"></i> Core Competencies
-				</h2>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+/* futuristic layer */
+html{color-scheme:light}
+body{position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+radial-gradient(900px 500px at 85% -10%,rgba(16,185,129,.14),transparent 60%),
+radial-gradient(700px 500px at -10% 30%,rgba(100,116,139,.12),transparent 60%),var(--bg)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+background-size:56px 56px;opacity:.55;-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%)}
+#bar{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#10b981,#8a5a3c);box-shadow:0 0 12px #10b981}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(251,248,244,.6);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+.nav b{font:700 .95rem var(--mono);letter-spacing:.06em;color:var(--copper);text-shadow:0 0 14px rgba(16,185,129,.6)}
+.nav div{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.nav div::-webkit-scrollbar{display:none}
+.nav a{padding:6px 12px;border-radius:8px;font-size:.85rem;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .2s,background .2s}
+.nav a:hover{color:var(--text);background:rgba(100,116,139,.12)}
+.brand{display:flex;flex:none}
+.brand img{width:36px;height:36px;display:block;filter:drop-shadow(0 0 10px rgba(16,185,129,.55))}
+section{scroll-margin-top:64px}
+.hero{padding-top:128px}
+h1{background:linear-gradient(100deg,#0f1419 10%,#10b981 55%,#8a5a3c);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 28px rgba(16,185,129,.25));letter-spacing:-.045em}
+.role{color:var(--text);font-weight:500}
+.term{margin-top:20px;font:.85rem var(--mono);color:var(--muted);position:relative}
+.term b{color:#2e7d4f;font-weight:600}
+.term::after{content:"";display:inline-block;width:8px;height:1em;vertical-align:-2px;margin-left:6px;background:var(--copper);animation:blink 1s steps(2) infinite}
+.hero .wrap>*{animation:rise .8s cubic-bezier(.2,.8,.2,1) both}
+.hero .wrap>*:nth-child(2){animation-delay:.08s}.hero .wrap>*:nth-child(3){animation-delay:.16s}
+.hero .wrap>*:nth-child(4){animation-delay:.24s}.hero .wrap>*:nth-child(5){animation-delay:.32s}.hero .wrap>*:nth-child(6){animation-delay:.4s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+.hero svg.traces{opacity:.9;filter:drop-shadow(0 0 6px rgba(16,185,129,.35))}
+.traces path{stroke:rgba(100,116,139,.28)}
+.traces .pulse{stroke:#10b981;stroke-width:3;filter:drop-shadow(0 0 6px #10b981)}
+.status{background:rgba(16,185,129,.07);border-color:rgba(16,185,129,.3);color:var(--copper)}
+.status i{background:var(--copper);box-shadow:0 0 10px var(--copper)}
+h2::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--copper);box-shadow:0 0 14px var(--copper);transform:rotate(45deg)}
+h2::after{background:linear-gradient(90deg,var(--line),transparent)}
+.card,.proj{position:relative;background:var(--surface);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-color:var(--line);box-shadow:0 10px 40px -24px rgba(80,45,25,.4),inset 0 1px 0 rgba(255,255,255,.9);transition:border-color .3s,box-shadow .3s}
+.card::before,.proj::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(16,185,129,.12),transparent 60%)}
+.card:hover::before,.proj:hover::before{opacity:1}
+.card:hover,.proj:hover{border-color:rgba(16,185,129,.4);box-shadow:0 10px 40px -24px rgba(80,45,25,.4),0 0 28px -8px rgba(16,185,129,.35)}
+.card::after,.proj::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;background:
+linear-gradient(var(--copper),var(--copper)) 0 0/16px 2px no-repeat,linear-gradient(var(--copper),var(--copper)) 0 0/2px 16px no-repeat,
+linear-gradient(var(--cyan),var(--cyan)) 100% 100%/16px 2px no-repeat,linear-gradient(var(--cyan),var(--cyan)) 100% 100%/2px 16px no-repeat;opacity:.75}
+.proj .tag{color:var(--copper)}
+.proj>summary:hover h3{color:var(--copper);text-shadow:0 0 18px rgba(16,185,129,.5)}
+.chips span{background:rgba(16,185,129,.06);border-color:rgba(16,185,129,.2);color:#374151}
+.btn{background:rgba(100,116,139,.07);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn:hover{border-color:var(--copper);box-shadow:0 0 22px -4px rgba(16,185,129,.5);transform:translateY(-2px)}
+.gh,.spr{background:rgba(251,248,244,.7)}
+.gh:hover,.spr:hover{box-shadow:0 0 18px -2px rgba(16,185,129,.55)}
+.shots img{box-shadow:0 12px 30px -18px rgba(80,45,25,.5)}
+.shots img:hover{box-shadow:0 0 26px -6px rgba(16,185,129,.6);border-color:rgba(16,185,129,.5)}
+.date{color:var(--copper)}
+@media(max-width:560px){.hero{padding-top:96px}}
+@media(prefers-reduced-motion:reduce){.hero .wrap>*{animation:none!important}}
 
-					<!-- Skill Card 1 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-blue-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-code text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Firmware & RTOS</h3>
-						<p class="text-xs text-slate-400 mb-4">Multitasking logic, low-level driver architecture, and optimization.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Embedded C</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">FreeRTOS</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Python</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Yocto Linux</span>
-						</div>
-					</div>
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))}
+.stat .num{font-size:clamp(2.1rem,5vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums;background:linear-gradient(100deg,#0f1419,#10b981 60%,#8a5a3c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{margin-top:10px;font-size:.85rem}
+.proj .result{grid-column:1;color:#0f1419;font-weight:500;font-size:.98rem;margin:2px 0 4px}
+.rows{display:grid;grid-template-columns:120px 1fr;gap:14px 20px;margin-top:20px;font-size:.92rem}
+.rows b{font:600 .8rem var(--mono);color:var(--cyan);padding-top:3px}
+.rows ul{margin:0;padding-left:18px}
+@media(max-width:620px){.rows{grid-template-columns:1fr;gap:4px}.rows b{margin-top:10px}}
 
-					<!-- Skill Card 2 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-blue-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-network-wired text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Hardware & PCB</h3>
-						<p class="text-xs text-slate-400 mb-4">Multi-layer routing, EMI minimization, and component footprints.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">KiCAD</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">OrCAD</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Altium Designer</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">STM32 / ESP32</span>
-						</div>
-					</div>
+/* warm white + brown theme */
+.btn.primary{background:linear-gradient(135deg,#c95f3f,#a63f22);color:#fff}
+h1{filter:none}
+.nav b,.brand img{text-shadow:none}
+.brand img{filter:drop-shadow(0 2px 6px rgba(100,116,139,.35))}
+.hero svg.traces{opacity:.85;filter:none}
+.traces path{stroke:rgba(100,116,139,.3)}
+.traces .pulse{stroke:#10b981;filter:none}
+.status{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.3)}
+.status i,h2::before{box-shadow:none}
+.stat .num{filter:none}
+.proj>summary:hover h3{text-shadow:none}
+.chips span{background:rgba(100,116,139,.06);border-color:rgba(100,116,139,.2)}
+.card:hover,.proj:hover{box-shadow:0 10px 40px -24px rgba(80,45,25,.4),0 0 0 3px rgba(16,185,129,.07)}
+#bar{box-shadow:none}
+body::after{opacity:.5}
 
-					<!-- Skill Card 3 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-blue-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-sliders text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Protocols & Lab Work</h3>
-						<p class="text-xs text-slate-400 mb-4">Industrial bus integration and physical hardware debugging.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">MODBUS</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">MQTT</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">I²C / SPI / Ethernet</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Logic Analyzer</span>
-						</div>
-					</div>
+/* clean white page */
+:root{--bg:#ffffff;--surface:#ffffff;--line:#eadfd6;--muted:#4b5563}
+html,body{background:#fff}
+body::before{background:#fff}
+body::after{display:none}
+.nav{background:rgba(255,255,255,.97);-webkit-backdrop-filter:none;backdrop-filter:none}
+.card,.proj{-webkit-backdrop-filter:none;backdrop-filter:none;background:#fff;box-shadow:0 1px 2px rgba(80,45,25,.05),0 8px 24px -16px rgba(80,45,25,.18)}
+.card:hover,.proj:hover{border-color:rgba(16,185,129,.45);box-shadow:0 1px 2px rgba(80,45,25,.05),0 12px 30px -16px rgba(16,185,129,.3)}
+.btn{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}
+.gh,.spr{background:#fff}
+#impact .card{background:#f3f5f7}
+.shots img{background:#eef1f4}
 
-				</div>
-			</section>
+/* PCB copper + solder green, sharp type */
+:root{--text:#0f1419;--muted:#4b5563;--line:#d9dee5;--cu:#10b981;--gr:#10b981}
+h1{background:none;-webkit-text-fill-color:#0f1419;color:#0f1419;font-weight:900;letter-spacing:-.05em}
+.stat .num{background:none;-webkit-text-fill-color:#0f1419;color:#0f1419;font-weight:900}
+.role{font-weight:600;letter-spacing:-.01em}
+h2{font-weight:800;letter-spacing:-.03em}
+h2::before{background:var(--cu);border-radius:0;transform:none;width:12px;height:12px}
+.card,.proj{border-radius:6px;box-shadow:0 1px 2px rgba(15,20,25,.05),0 10px 24px -18px rgba(15,20,25,.28)}
+.btn,.status,.gh,.spr{border-radius:6px}
+.gh,.spr{border-radius:50%}.spr{border-radius:99px}
+.chips span{border-radius:3px;background:#f3f5f7;border-color:rgba(15,20,25,.14);color:#374151}
+.shots img{border-radius:4px}
+.card::after,.proj::after{border-radius:inherit;background:
+linear-gradient(var(--cu),var(--cu)) 0 0/18px 3px no-repeat,linear-gradient(var(--cu),var(--cu)) 0 0/3px 18px no-repeat,
+linear-gradient(var(--gr),var(--gr)) 100% 100%/18px 3px no-repeat,linear-gradient(var(--gr),var(--gr)) 100% 100%/3px 18px no-repeat;opacity:1}
+#bar{background:linear-gradient(90deg,var(--cu),var(--gr))}
+.traces path{stroke:rgba(15,20,25,.16)}
+.traces circle{stroke:var(--cu)}
+.traces .pulse{stroke:var(--gr);stroke-width:3}
+.status{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.4);color:#047857}
+.status i{background:var(--gr)}
+.term b{color:#047857}
+.term::after{background:var(--cu)}
+.btn.primary{background:var(--cu);border-color:var(--cu);color:#0f1419}
+.btn.primary:hover{background:#065f46;border-color:#065f46;box-shadow:none}
+.btn:hover{border-color:var(--cu);box-shadow:none}
+.body li::marker{color:var(--cu)}
+.card:hover,.proj:hover{border-color:var(--cu);box-shadow:0 1px 2px rgba(15,20,25,.05),0 12px 28px -16px rgba(16,185,129,.45)}
+.rows b{color:#047857}
+.proj .result{color:#0f1419;font-weight:600}
+.proj>summary:hover h3{color:#047857}
+.gh:hover,.spr:hover{border-color:var(--cu);color:#047857;box-shadow:none}
+.brand img{filter:none}
 
-			<!-- Engineering Soft Skills Cards -->
-			<section class="mb-16">
-				<h2 class="text-xs uppercase tracking-widest text-emerald-400 font-bold mb-6 flex items-center gap-2">
-					<i class="fa-solid fa-users-gear"></i> Engineering Practice & Collaboration
-				</h2>
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-					<!-- Soft Skill Card 1 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-emerald-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-bug-slash text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Problem Solving & Debugging</h3>
-						<p class="text-xs text-slate-400 mb-4">Root-cause analysis for complex hardware-software bugs and system latency.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Root-Cause Analysis</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">System Optimization</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Fault Isolation</span>
-						</div>
-					</div>
-					<!-- Soft Skill Card 2 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-amber-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-handshake-angle text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Cross-Functional Collaboration</h3>
-						<p class="text-xs text-slate-400 mb-4">Partnering with quality, calibration, and assembly teams for production yield.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Cross-Team Work</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Quality Assurance</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Production Support</span>
-						</div>
-					</div>
-					<!-- Soft Skill Card 3 -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800/80 hover:border-indigo-500/50 transition group">
-						<div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
-							<i class="fa-solid fa-diagram-project text-lg"></i>
-						</div>
-						<h3 class="font-bold text-white mb-2">Workflow & Documentation</h3>
-						<p class="text-xs text-slate-400 mb-4">Process automation, technical reporting, and knowledge transfer across SMEs.</p>
-						<div class="flex flex-wrap gap-1.5">
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Technical Writing</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Process Automation</span>
-							<span class="px-2 py-0.5 text-[11px] rounded bg-slate-800 text-slate-300 border border-slate-700">Knowledge Transfer</span>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- Visual Featured Projects -->
-			<section class="mb-16">
-				<h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6 flex items-center gap-2">
-					<i class="fa-solid fa-layer-group"></i> Featured Engineering Projects
-				</h2>
+/* silver grey + white + green */
+:root{--gr:#aeb6c1;--line:#d9dee5;--text:#0f1419;--muted:#4b5563}
+.btn.primary{background:#047857;border-color:#047857;color:#fff}
+.btn.primary:hover{background:#065f46;border-color:#065f46;color:#fff}
+.traces path{stroke:rgba(100,116,139,.28)}
+.traces .pulse{stroke:#10b981}
+.status i{background:#10b981}
+#bar{background:linear-gradient(90deg,#10b981,#aeb6c1)}
+.card::after,.proj::after{background:
+linear-gradient(#10b981,#10b981) 0 0/18px 3px no-repeat,linear-gradient(#10b981,#10b981) 0 0/3px 18px no-repeat,
+linear-gradient(#aeb6c1,#aeb6c1) 100% 100%/18px 3px no-repeat,linear-gradient(#aeb6c1,#aeb6c1) 100% 100%/3px 18px no-repeat}
+.card:hover,.proj:hover{border-color:#10b981}
 
-				<div class="grid grid-cols-1 gap-8">
-					<!-- Project Card 1 -->
-					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
-						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-blue-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
-							<span class="text-[10px] font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-1 rounded w-fit">
-								Commercial Deployed (€1M+)
-							</span>
-							<div class="my-auto text-center py-4">
-								<i class="fa-solid fa-chart-line text-4xl text-blue-400/80 mb-2 group-hover:scale-110 transition"></i>
-								<p class="text-xs text-slate-400 font-mono">RTOS Display & UI Firmware</p>
-							</div>
-							<div class="text-[11px] font-mono text-slate-500">Target: ARM Cortex-M4</div>
-						</div>
+/* hover glow sits behind the text */
+.card,.proj{isolation:isolate}
+.card::before,.proj::before{z-index:-1;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(16,185,129,.08),transparent 60%)}
 
-						<div class="md:col-span-8 p-6 flex flex-col justify-between">
-							<div>
-								<div class="pr-10">
-									<h3 class="text-xl font-bold text-white mb-2">Smart Meter TOU & Power Demand </h3>
-								</div>
-								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Optimized RTOS task execution and interrupt routines to completely eliminate UI button latency.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Engineered a fully configurable GUI menu system with high-resolution display firmware in C and FreeRTOS.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Created custom Modbus registers for real-time data exchange, telemetry monitoring, and remote configuration.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Developed active power demand and Time-of-Use (TOU) energy calculation algorithms for Peak, Sharp, Valley, and Normal tariff bands.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Built robust automatic data recovery mechanisms in non-volatile memory to prevent information loss during power outages.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-blue-400 mt-0.5"></i>
-										Implemented a TOU chart engine supporting over 100 user-configurable parameters with integrated automatic error checking and correction suggestions.
-									</li>
-								</ul>
+/* gold copper pad outline on cards, clean images */
+.card,.proj{border-color:rgba(200,150,62,.5)}
+.card:hover,.proj:hover{border-color:#c8963e;box-shadow:0 1px 2px rgba(15,20,25,.05),0 12px 28px -16px rgba(200,150,62,.4)}
+.card::after,.proj::after{background:
+radial-gradient(circle,#fff 0 1.7px,#d9a441 2px 4.4px,#a8742a 4.6px 5.4px,transparent 5.6px) left 7px top 7px/12px 12px no-repeat,
+radial-gradient(circle,#fff 0 1.7px,#d9a441 2px 4.4px,#a8742a 4.6px 5.4px,transparent 5.6px) right 7px top 7px/12px 12px no-repeat,
+radial-gradient(circle,#fff 0 1.7px,#d9a441 2px 4.4px,#a8742a 4.6px 5.4px,transparent 5.6px) left 7px bottom 7px/12px 12px no-repeat,
+radial-gradient(circle,#fff 0 1.7px,#d9a441 2px 4.4px,#a8742a 4.6px 5.4px,transparent 5.6px) right 7px bottom 7px/12px 12px no-repeat}
+.shots img:hover{border-color:var(--line);box-shadow:0 12px 30px -18px rgba(15,20,25,.5);filter:none}
+dialog,dialog:focus,dialog:focus-visible,dialog img,dialog img:focus,dialog img:focus-visible{outline:none;border:0;box-shadow:none}
 
-								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
-									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										Designed time-of-use and average power demand graph rendering on ARM Cortex-M4 smart meters deployed in the German industrial market.
-									</p>
-									<div class="grid grid-cols-2 gap-3 mb-4">
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p1-1.png" alt="PCB Diagram Layout" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge="">
-					</div>
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p1-2.png" alt="Smart Meter UI Screen" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge="">
-					</div>
-									</div>
-								</div>
-							</div>
+/* no colour changes on hover */
+.card::before,.proj::before{display:none}
+.card:hover,.proj:hover{border-color:rgba(200,150,62,.5);box-shadow:0 1px 2px rgba(15,20,25,.05),0 10px 24px -18px rgba(15,20,25,.28)}
+.proj>summary:hover h3{color:inherit;text-shadow:none}
+.btn:hover{border-color:var(--line);box-shadow:none;transform:none}
+.btn.primary:hover{background:#047857;border-color:#047857;color:#fff;box-shadow:none}
+.nav a:hover{color:var(--muted);background:none}
+.gh:hover,.spr:hover{border-color:var(--line);color:var(--muted);box-shadow:none}
+.shots img:hover{border-color:var(--line);box-shadow:0 12px 30px -18px rgba(15,20,25,.5);filter:none;opacity:1}
 
-							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
-								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">FreeRTOS</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Embedded C</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Modbus RTU</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">TOU Engines</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Smart Metering</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Project Card 2 -->
-					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
-						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-teal-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
-							<span class="text-[10px] font-mono text-teal-400 bg-teal-500/10 border border-blue-500/20 px-2 py-1 rounded w-fit">
-								4-Layer Hardware Design
-							</span>
-							<div class="my-auto text-center py-4">
-								<i class="fa-solid fa-dongle-usb text-4xl text-teal-400/80 mb-2 group-hover:scale-110 transition"></i>
-								<p class="text-xs text-slate-400 font-mono">USB Flash-Drive Form Factor</p>
-							</div>
-							<div class="text-[11px] font-mono text-slate-500">Tool: Altium / KiCAD</div>
-						</div>
+/* whole page as schematic paper with PCB traces */
+.hero svg.traces{display:none}
+#traces{position:absolute;top:0;left:0;width:100%;z-index:-1;pointer-events:none;overflow:hidden;
+background-image:linear-gradient(rgba(100,116,139,.075) 1px,transparent 1px),linear-gradient(90deg,rgba(100,116,139,.075) 1px,transparent 1px);background-size:24px 24px}
+body{background:transparent}
+#traces svg{display:block}
+#traces .t{fill:none;stroke-linejoin:round;stroke-linecap:round}
+#traces .pl{fill:none;stroke:#10b981;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:24 976;animation:flow var(--dur,9s) linear infinite;animation-delay:var(--dl,0s)}
+@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}
+#traces text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+footer.tb{display:grid;grid-template-columns:1.1fr 2fr 1fr auto;padding:0;border:1.5px solid #aeb6c1;background:#fff;color:var(--text);gap:0;margin-top:72px}
+footer.tb>*{padding:10px 14px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+footer.tb>*:last-child{border-right:0}
+footer.tb small{font:.65rem var(--mono);letter-spacing:.08em;color:#7b8794;text-transform:uppercase}
+footer.tb b{font:600 .88rem var(--mono)}
+footer.tb a{color:#047857;font-weight:600;text-decoration:none}
+@media(max-width:700px){footer.tb{grid-template-columns:1fr 1fr}footer.tb>*{border-bottom:1px solid var(--line)}}
+.nav{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#fff!important}
+</style>
+</head>
+<body id="top">
+<div id="traces" aria-hidden="true"></div>
+<div id="bar"></div>
+<nav class="nav"><div class="wrap"><a class="brand" href="#top" aria-label="Salil Tiwari, back to top"><img src="asset/apple-touch-icon.png" width="36" height="36" alt=""></a><div><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#publications">Publication</a></div></div></nav>
 
-						<div class="md:col-span-8 p-6 flex flex-col justify-between">
-							<div>
-								<div class="pr-10">
-									<h3 class="text-xl font-bold text-white mb-2">USB to RS232 Galvanic Isolated Converter</h3>
-								</div>
-								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Achieved reliable 115.2 Kbps data speeds with 2.5kV galvanic isolation using high-performance digital isolators and isolated DC-DC converters.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Protected connected laptops and host USB controllers from severe industrial ground loops, high-voltage spikes, and transient surges.
-									</li>
-							
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Enforced strict 4mm isolation gap creepage and clearance rules across the isolation barrier to maintain safety and compliance standards.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Utilized dedicated internal ground and power planes to minimize electromagnetic interference (EMI) and maintain clear signal integrity.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-teal-400 mt-0.5"></i>
-										Executed thorough DFM and DRC analysis in Altium to guarantee high manufacturing yield and long-term hardware field reliability.
-									</li>
-								</ul>
+<header class="hero">
+<svg class="traces" viewBox="0 0 520 300" aria-hidden="true">
+<path d="M0 60H140L180 100H340L380 60H520"/><path d="M0 150H90L130 190H260L300 150H520"/><path d="M60 300V230L100 200"/><path d="M420 300V210L380 170"/>
+<path class="pulse" d="M0 60H140L180 100H340L380 60H520"/>
+<circle cx="140" cy="60" r="6"/><circle cx="340" cy="100" r="6"/><circle cx="260" cy="190" r="6"/><circle cx="380" cy="170" r="6"/>
+</svg>
+<div class="wrap">
+<span class="status"><i></i>Open to embedded &amp; firmware roles</span>
+<h1>Salil Tiwari</h1>
+<p class="role">Embedded Systems Engineer</p>
+<p class="lede">3+ years building ARM Cortex-M4 firmware, RTOS multitasking and reliable PCBs for industrial products shipped across Europe.</p>
+<p class="term">&gt; boot ARM Cortex-M4 · FreeRTOS · MQTT … <b>OK</b></p>
+<div class="cta">
+<a class="btn primary" href="mailto:tsalil779@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6.5L21 7"/></svg>Email</a>
+<a class="btn" href="https://linkedin.com/in/salil-tiwari" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>LinkedIn</a>
+<a class="btn" href="https://github.com/zen-yocto" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+</div>
+</div>
+</header>
 
-								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
-									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										This hardware solves the critical safety challenge of connecting consumer USB ports to noisy, high-voltage industrial RS232 equipment. A 4-layer PCB architecture was necessary to manage power plane routing for both the isolated and non-isolated sides while strictly maintaining safe creepage and clearance distances. Digital isolators were preferred over optocouplers to provide the speed and longevity required for a high-performance, robust field tool.
-									</p>
-									<div class="grid grid-cols-2 gap-3 mb-4">
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p4-1.png" alt="PCB of converter" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-					</div>
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p4-2.png" alt="Testing converter" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-					</div>
-									</div>
-								</div>
-							</div>
+<main class="wrap">
 
-							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
-								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Altium/KiCAD</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Galvanic Isolation</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">RS232/TTL</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">4-Layer PCB</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Signal Integrity</span>
-								</div>
-							</div>
-						</div>
-					</div>
+<section id="impact" style="padding-top:8px">
+<div class="grid g4">
+<div class="card stat"><div class="num" data-to="1" data-pre="€" data-suf="M+">€1M+</div><p>Commercial smart meter product with my firmware, deployed in Germany</p></div>
+<div class="card stat"><div class="num" data-to="40" data-suf="%">40%</div><p>Less production downtime from the automated test rig with watchdog recovery</p></div>
+<div class="card stat"><div class="num" data-to="2.5" data-dec="1" data-suf=" kV">2.5 kV</div><p>Galvanic isolation at 115.2 Kbps in a USB flash-drive converter</p></div>
+<div class="card stat"><div class="num" data-to="100" data-suf="+">100+</div><p>User-configurable parameters in the time-of-use chart engine</p></div>
+</div>
+</section>
 
-					<!-- Project Card 3 -->
-					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
-						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-purple-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
-							<span class="text-[10px] font-mono text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2 py-1 rounded w-fit">
-								Assembly Automation
-							</span>
-							<div class="my-auto text-center py-4">
-								<i class="fa-solid fa-robot text-4xl text-purple-400/80 mb-2 group-hover:scale-110 transition"></i>
-								<p class="text-xs text-slate-400 font-mono">ESP32 & Custom 3D Enclosure</p>
-							</div>
-							<div class="text-[11px] font-mono text-slate-500">Accuracy: 95% Fault Detection</div>
-						</div>
+<section id="skills">
+<h2>Skills</h2>
+<div class="grid g3">
+<div class="card"><h3>Firmware &amp; RTOS</h3><p>Multitasking logic, low-level drivers and optimization.</p>
+<div class="chips"><span>Embedded C</span><span>FreeRTOS</span><span>Python</span><span>Yocto Linux</span></div></div>
+<div class="card"><h3>Hardware &amp; PCB</h3><p>Multi-layer routing, EMI control and footprints.</p>
+<div class="chips"><span>KiCAD</span><span>OrCAD</span><span>Altium Designer</span><span>STM32 / ESP32</span></div></div>
+<div class="card"><h3>Protocols &amp; lab work</h3><p>Industrial buses and hands-on hardware debugging.</p>
+<div class="chips"><span>MODBUS</span><span>MQTT</span><span>I²C / SPI / Ethernet</span><span>Logic analyzer</span></div></div>
+<div class="card"><h3>Debugging</h3><p>Root-cause analysis of hardware-software bugs and system latency.</p>
+<div class="chips"><span>Root cause</span><span>Fault isolation</span><span>Optimization</span></div></div>
+<div class="card"><h3>Collaboration</h3><p>Working with quality, calibration and assembly teams to protect production yield.</p>
+<div class="chips"><span>Cross-team</span><span>QA</span><span>Production support</span></div></div>
+<div class="card"><h3>Documentation</h3><p>Technical reporting, process automation and knowledge transfer.</p>
+<div class="chips"><span>Technical writing</span><span>Automation</span><span>Knowledge transfer</span></div></div>
+</div>
+</section>
 
-						<div class="md:col-span-8 p-6 flex flex-col justify-between">
-							<div>
-								<div class="pr-10">
-									<h3 class="text-xl font-bold text-white mb-2">Automated Testing Equipment (ATE) Rig</h3>
-								</div>
-								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-purple-400 mt-0.5"></i>
-										Developed production-line test rig software in C++ on ESP32, capable of automatically diagnosing WS2812 LED bar graph faults and validating correct assembly.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-purple-400 mt-0.5"></i>
-										Engineered a robust system using an internal ESP32 logic with an external hardware Watchdog Timer (WDT), cutting production downtime by 40% due to automated system recovery without human intervention.
-									</li>
-		
-								</ul>
+<section id="projects">
+<h2>Projects</h2>
 
-								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
-									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										Custom FreeCAD 3D-printed mechanical contact fixture paired with automated microcontroller QA firmware for high-throughput factory manufacturing lines. The design of the custom mechanical interface was critical, using pogo pins to provide reliable, non-destructive electrical connections to the Unit Under Test (UUT).
-									</p>
-								</div>
-							</div>
+<div id="projects-list"></div>
+</section>
 
-							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
-								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">ESP32</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">FreeCAD</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Automated QA</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Watchdog (WDT)</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Mechanical Fixture</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Project Card 4: STM32 + DHT22 + ENC28J60 + MQTT -->
-					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
-						<a href="https://github.com/zen-yocto/stm32-ethernet-mqtt" target="_blank" class="absolute top-4 right-4 z-20 text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 p-2 rounded-full border border-slate-700/80 transition" title="View on GitHub">
-							<i class="fa-brands fa-github text-base"></i>
-						</a>
+<section id="experience">
+<h2>Experience</h2>
+<div class="card">
+<div style="display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;align-items:baseline;margin-bottom:6px"><p class="muted" style="font-size:.9rem"><a class="logo" href="https://www.lumel.com.pl/en/" target="_blank" rel="noopener" aria-label="Lumel S.A."><img src="asset/lumel-logo.png" alt="Lumel S.A." height="36" decoding="async" onerror="this.parentNode.classList.add('nologo');this.remove()"><strong class="logo-fallback">Lumel S.A.</strong></a> <span style="white-space:nowrap">· Zielona Góra, Poland</span> · Industrial automation manufacturer</p><span class="date" style="margin-left:auto">2022 – 2026</span></div>
+<div class="job"><div class="date">2023 – 2026</div><div><h3>Electronic Design Engineer</h3><ul>
+<li>Designed firmware and high-reliability PCBs for industrial automation products and smart grid energy meters sold across European markets.</li>
+<li>Integrated MODBUS, Ethernet (SPI) and MQTT on ARM Cortex-M4 platforms.</li>
+<li>Led hardware and software verification using logic analyzers, oscilloscopes and automated test fixtures.</li></ul></div></div>
+<div class="job"><div class="date">2022 – 2023</div><div><h3>Production Support (part time)</h3><ul>
+<li>Improved manufacturing and QA routines with automated optical verification and functional test rigs.</li>
+<li>Validated component redesigns and schematic revisions to avoid downtime and keep line yield stable.</li></ul></div></div>
+</div>
+</section>
 
-						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-emerald-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
-							<span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded w-fit">
-								Industrial IoT Gateway
-							</span>
-							<div class="my-auto text-center py-4">
-								<i class="fa-solid fa-ethernet text-4xl text-emerald-400/80 mb-2 group-hover:scale-110 transition"></i>
-								<p class="text-xs text-slate-400 font-mono">STM32 + ENC28J60 SPI</p>
-							</div>
-							<div class="text-[11px] font-mono text-slate-500">Protocol: MQTT Telemetry</div>
-						</div>
+<section id="education">
+<h2>Education</h2>
+<div class="grid g3" style="grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))">
+<div class="card edu"><div class="date">2022 – 2023</div><h3>University of Zielona Góra – Zielona Góra, Poland</h3>
+<p class="sub"><strong style="color:var(--text)">M.Eng., Management and Production Engineering</strong><br>Full sponsorship from Lumel S.A.<br>Thesis: The use of information technologies for knowledge management in small and medium-sized enterprises.</p>
+<div class="chips"><span>Metrology</span><span>OOP in C/C++</span><span>CAD &amp; simulation</span><span>Decision systems</span></div></div>
+<div class="card edu"><div class="date">2016 – 2020</div><h3>Medi-Caps University, Indore, India</h3>
+<p class="sub"><strong style="color:var(--text)">B.Tech., Electrical and Electronics Engineering</strong><br>Honors, specializing in Power Electronics.<br>Thesis: Observation and control of smart grid using IoT and cloud technology.</p>
+<div class="chips"><span>Microcontrollers</span><span>Power electronics</span><span>Digital circuits</span><span>Control systems</span></div></div>
+</div>
+</section>
 
-						<div class="md:col-span-8 p-6 flex flex-col justify-between">
-							<div>
-								<div class="pr-10">
-									<h3 class="text-xl font-bold text-white mb-2">STM32 Ethernet Environmental Sensor & MQTT Node</h3>
-								</div>
-								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
-										Engineered bare-metal and FreeRTOS-compatible C drivers from scratch to interface an STM32 with a DHT22 precision temperature/humidity sensor using an ultra-low-level, custom bit-banging approach for timing-critical accuracy.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
-										Integrated an ENC28J60 Ethernet controller via high-speed SPI, implementing non-blocking SPI frame processing to handle concurrent MQTT packet transmission and sensor acquisition without CPU stall.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
-										Optimized the entire node for low-latency MQTT publication of time-stamped environmental telemetry to an industrial broker, designed for stable 24/7 operation in harsh noise environments where wired connectivity is required.
-									</li>
-								</ul>
+<section id="publications">
+<h2>Publication</h2>
+<div class="card" style="position:relative">
+<a class="spr" href="https://link.springer.com/chapter/10.1007/978-981-15-8439-8_46" target="_blank" rel="noopener" aria-label="View on Springer" title="View on Springer"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.6 8.3c-.7-.9-1.8-1.4-3.2-1.4-1.9 0-3.1 1-3.1 2.4 0 1.4 1 2 2.8 2.4l1 .2c1 .2 1.4.5 1.4 1 0 .6-.6 1-1.6 1-1 0-1.8-.4-2.3-1.2l-1.5.9c.8 1.3 2.1 2 3.9 2 2.1 0 3.5-1 3.5-2.6 0-1.4-1-2.1-2.9-2.5l-.9-.2c-.9-.2-1.3-.5-1.3-.9 0-.5.5-.9 1.4-.9.8 0 1.4.3 1.8.9z" fill="currentColor"/></svg><span>View on Springer</span></a>
+<h3 style="padding-right:190px">Chapter in Springer Proceedings</h3>
+<p>“Observation and Control of Smart Grid Using IoT and Cloud Technology”</p>
+<h4 style="margin-top:16px;font-size:.95rem">Abstract</h4>
+<p class="abstract">Traditional electrical grids have one-way communication and are centered around the distributor. They also lack routing and interconnection of different types of generation, which reduces the reliability of supply. To overcome this, we propose a comprehensive Smart Grid architecture with observation and control using the Internet of Things (IoT) and Cloud Technology. We integrated different energy sources (thermal and renewable) into one system and introduced automatic routing of electric power according to peak and low demand. It also includes smart metering using IoT and cloud technology, which gathers, sends and receives real-time data and provides two-way communication of power consumption between customer and producer. All data can be stored, accessed and analyzed on a secured, customized API platform. We built and thoroughly tested a demonstration model with a Wi-Fi-based smart meter, which helped us monitor and control electric power and improve the reliability of the system.</p>
+</div>
+</section>
 
-								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
-									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										Built a high-reliability wired industrial monitoring node to provide stable telemetry where Wi-Fi is inadequate. A dedicated STM32 ARM Cortex core is essential to manage the real-time sensor bit-banging, the parallel SPI network traffic, and the MQTT protocol stack simultaneously. The ENC28J60 Ethernet controller, connected over a specialized high-throughput SPI interface, offers a robust and cost-effective wired connectivity solution optimized for low-latency datalogging in demanding environmental scenarios.
-									</p>
-									<div class="grid grid-cols-2 gap-3 mb-4">
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p2-1.png" alt="NUCLEO-SMT32F411 Circuit realization" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge="">
-					</div>
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p2-2.png" alt="Wireshark Capture" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition cursor-zoom-in" data-enlarge="">
-					</div>
-									</div>
-								</div>
-							</div>
+<footer class="tb"><div><small>Drawn by</small><b>Salil Tiwari</b></div><div><small>Title</small><b>Embedded Systems Portfolio</b></div><div><small>Rev / Sheet</small><b>A · 1 of 1</b></div><a href="#top">Back to top ↑</a></footer>
+</main>
 
-							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
-								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">STM32 (Cortex-M)</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">ENC28J60</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">MQTT / TCP/IP</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Non-blocking SPI</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Datalogging</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Project 5: Raspberry Pi 3A+ Yocto Kiosk -->
-					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
-						<a href="https://github.com/zen-yocto/rpi-kiosk-yocto-rauc" target="_blank" class="absolute top-4 right-4 z-20 text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 p-2 rounded-full border border-slate-700/80 transition" title="View on GitHub">
-							<i class="fa-brands fa-github text-base"></i>
-						</a>
-						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-rose-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
-							<span class="text-[10px] font-mono text-rose-400 bg-rose-500/10 border border-rose-500/20 px-2 py-1 rounded w-fit">
-								Embedded Yocto Linux & RAUC
-							</span>
-							<div class="my-auto text-center py-4">
-								<i class="fa-solid fa-display text-4xl text-rose-400/80 mb-2 group-hover:scale-110 transition"></i>
-								<p class="text-xs text-slate-400 font-mono">Raspberry Pi 3A+ Touchscreen Kiosk</p>
-							</div>
-							<div class="text-[11px] font-mono text-slate-500">OTA: RAUC Bundles + SSH</div>
-						</div>
-						<div class="md:col-span-8 p-6 flex flex-col justify-between">
-							<div>
-								<div class="pr-10">
-									<h3 class="text-xl font-bold text-white mb-2">Self-Service Restaurant Kiosk System</h3>
-								</div>
-								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-rose-400 mt-0.5"></i>
-										Deployed full-featured Quick Service Restaurant (QSR) application using Flask, SQLite, and Cog kiosk browser on a custom Yocto image.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-rose-400 mt-0.5"></i>
-										Implemented robust RAUC A/B over-the-air update system with automated systemd timers and remote SSH debugging capabilities.
-									</li>
-								</ul>
-			<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
-									<p class="text-slate-400 text-xs leading-relaxed mb-3">
-										Custom Yocto Linux appliance featuring interactive touch ordering, dynamic upsell recommendation engine (SQLite suggestions model), real-time basket floating UI, automated first-boot GitHub provisioning service, and systemd service orchestration for zero-downtime kiosk boot sequencing.
-						</p>
-						<div class="grid grid-cols-2 gap-3 mb-4">
-							<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-								<img src="asset/p3-1.png" alt="PCB Diagram Layout" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-								</div>
-							<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-								<img src="asset/p3-2.png" alt="Smart Meter UI Screen" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-								</div>
-						</div>
-								</div>
-							</div>
-							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
-								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Yocto Linux</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">RAUC OTA</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">RPi 3A+</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Flask / SQLite</span>
-								</div>
-								
-							</div>
-						</div>
-					</div>
+<dialog id="lb"><img id="lb-img" alt=""></dialog>
 
-					<!-- Project 6: KiCad & OrCAD Design -->
-					<div class="relative rounded-2xl bg-slate-900/50 border border-slate-800/90 overflow-hidden hover:border-slate-700 transition grid grid-cols-1 md:grid-cols-12 group project-card">
-						<div class="md:col-span-4 bg-gradient-to-br from-slate-900 to-amber-950 p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800 relative min-h-[180px]">
-							<span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2 py-1 rounded w-fit">
-								Multi-Layer CAD / EDA
-							</span>
-							<div class="my-auto text-center py-4">
-								<i class="fa-solid fa-microchip text-4xl text-amber-400/80 mb-2 group-hover:scale-110 transition"></i>
-								<p class="text-xs text-slate-400 font-mono">KiCAD & OrCAD Circuit Design</p>
-							</div>
-							<div class="text-[11px] font-mono text-slate-500">DFM / DRC / Signal Integrity</div>
-						</div>
-						<div class="md:col-span-8 p-6 flex flex-col justify-between">
-							<div>
-								<div class="pr-10">
-									<h3 class="text-xl font-bold text-white mb-2">Arduino Uno PCB & Advanced Custom Clones</h3>
-								</div>
-								<ul class="text-xs text-slate-300 space-y-1.5 mb-4">
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-										Designed a standard reference Arduino Uno PCB along with an enhanced standalone Arduino clone featuring an integrated I2C EEPROM for non-volatile data storage.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-										Engineered a Battery-Powered Arduino Clone equipped with an extended EEPROM IC and an onboard Real-Time Clock (RTC) for precise, low-power time-stamped datalogging.
-									</li>
-									<li class="flex items-start gap-2">
-										<i class="fa-solid fa-check text-amber-400 mt-0.5"></i>
-										Ensured signal integrity routing for serial buses, and generated industrial manufacturing Gerber files following strict DFM and DRC guidelines.
-									</li>
-								</ul>
-								<div class="project-details border-t border-slate-800/80 pt-4 mt-4">
-									<p class="text-slate-400 text-xs leading-relaxed mb-4">
-										Developed custom schematic captures and multi-layer PCB layouts using KiCAD and OrCAD. The designs feature an ATmega328P core, optimized power supply rail decoupling, precision crystal oscillators, dedicated battery management circuitry, and external I2C EEPROM/RTC modules tailored for standalone and low-power autonomous operations.
-									</p>
-									<div class="grid grid-cols-2 gap-3 mb-4">
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p5-1.png" alt="PCB Arduino Uno in OrCAD Capture" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-					</div>
-										<div class="bg-slate-950 border border-slate-800 rounded-lg p-4 text-center text-slate-500 text-xs">
-											<img src="asset/p5-2.png" alt="Battery Powered Arduino Clone with EEPROM and Clock in KiCAD" class="w-full h-32 object-cover rounded-lg border border-slate-800 hover:opacity-90 transition">
-					</div>
-									</div>
-								</div>
-							</div>
-							<div class="flex items-center justify-between pt-3 border-t border-slate-800/80 mt-2">
-								<div class="flex flex-wrap gap-2">
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Arduino PCB</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">ATmega328P</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">EEPROM / RTC</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">KiCAD & OrCAD</span>
-									<span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Gerber/DFM</span>
-								</div>
-							</div>
-						</div>
-					</div>
+<script>
+// Change to 'webp' after converting your images (see notes), nothing else needs editing.
+const EXT = 'webp';
+const P = [
+ {
+  "t": "Smart Meter TOU & Power Demand",
+  "tag": "Commercial, deployed (€1M+)",
+  "meta": "ARM Cortex-M4 · RTOS display & UI firmware",
+  "b": [
+   "Optimized RTOS task execution and interrupt routines to eliminate UI button latency.",
+   "Built a fully configurable GUI menu system with high-resolution display firmware in C and FreeRTOS.",
+   "Created custom Modbus registers for real-time data exchange, telemetry and remote configuration.",
+   "Developed active power demand and Time-of-Use (TOU) energy calculation for Peak, Sharp, Valley and Normal tariff bands.",
+   "Added automatic data recovery in non-volatile memory to prevent data loss during power outages.",
+   "Implemented a TOU chart engine with 100+ user-configurable parameters, automatic error checking and correction suggestions."
+  ],
+  "i": [
+   [
+    "p1-1",
+    "PCB diagram layout"
+   ],
+   [
+    "p1-2",
+    "Smart meter UI screen"
+   ]
+  ],
+  "k": [
+   "FreeRTOS",
+   "Embedded C",
+   "Modbus RTU",
+   "TOU engines",
+   "Smart metering"
+  ],
+  "r": "Eliminated UI button latency on a smart meter deployed in the German industrial market (€1M+ product).",
+  "pr": "Industrial meters had to show time-of-use and average power demand clearly on the device, and the interface had to stay responsive under RTOS load.",
+  "w": "Display and UI firmware in C and FreeRTOS: a configurable menu system, TOU and demand graphs, and a TOU chart engine with 100+ parameters. I also moved the display from 320x240 to 640x480, which meant updating the whole codebase and display buffers."
+ },
+ {
+  "t": "USB to RS232 Galvanic Isolated Converter",
+  "tag": "4-layer hardware design",
+  "meta": "USB flash-drive form factor · Altium / KiCAD",
+  "b": [
+   "Reached reliable 115.2 Kbps with 2.5 kV galvanic isolation using digital isolators and isolated DC-DC converters.",
+   "Protected laptops and host USB controllers from industrial ground loops, voltage spikes and transient surges.",
+   "Enforced 4 mm creepage and clearance across the isolation barrier for safety and compliance.",
+   "Used dedicated internal ground and power planes to limit EMI and keep signals clean.",
+   "Ran DFM and DRC analysis in Altium for high manufacturing yield and long-term field reliability."
+  ],
+  "i": [
+   [
+    "p4-1",
+    "PCB of converter"
+   ],
+   [
+    "p4-2",
+    "Testing converter"
+   ]
+  ],
+  "k": [
+   "Altium / KiCAD",
+   "Galvanic isolation",
+   "RS232 / TTL",
+   "4-layer PCB",
+   "Signal integrity"
+  ],
+  "r": "2.5 kV galvanic isolation at 115.2 Kbps, in a USB flash-drive form factor.",
+  "pr": "Connecting a consumer USB port to noisy, high-voltage industrial RS232 equipment risks ground loops, spikes and damage to the laptop.",
+  "w": "A 4-layer PCB with separate isolated and non-isolated power planes and a 4 mm creepage and clearance gap. I chose digital isolators over optocouplers for speed and longevity, and checked the design with DFM and DRC in Altium."
+ },
+ {
+  "t": "Automated Testing Equipment (ATE) Rig",
+  "tag": "Assembly automation",
+  "meta": "ESP32 · custom 3D-printed fixture · 95% fault detection",
+  "b": [
+   "Wrote production-line test software in C++ on ESP32 that diagnoses WS2812 LED bar graph faults and validates assembly.",
+   "Combined ESP32 logic with an external hardware watchdog timer, cutting production downtime by 40% through automatic recovery."
+  ],
+  "i": [],
+  "k": [
+   "ESP32",
+   "FreeCAD",
+   "Automated QA",
+   "Watchdog (WDT)",
+   "Mechanical fixture"
+  ],
+  "r": "Cut production downtime by 40% with automatic recovery, and reached 95% fault detection.",
+  "pr": "The production line needed assemblies validated automatically, including faults in WS2812 LED bar graphs, and a rig that could recover without an operator.",
+  "w": "Test software in C++ on ESP32 paired with an external hardware watchdog timer, and a custom FreeCAD 3D-printed fixture that uses pogo pins for reliable, non-destructive contact with the unit under test."
+ },
+ {
+  "t": "STM32 Ethernet Environmental Sensor & MQTT Node",
+  "tag": "Industrial IoT gateway",
+  "meta": "STM32 + ENC28J60 over SPI · MQTT telemetry",
+  "gh": "https://github.com/zen-yocto/stm32-ethernet-mqtt",
+  "b": [
+   "Wrote bare-metal and FreeRTOS-compatible C drivers from scratch for a DHT22 sensor, using timing-critical bit-banging.",
+   "Integrated an ENC28J60 Ethernet controller over SPI with non-blocking frame processing, so MQTT transmission and sensor reads run together without CPU stalls.",
+   "Tuned the node for low-latency MQTT publishing of time-stamped telemetry to an industrial broker, built for 24/7 operation in noisy environments."
+  ],
+  "i": [
+   [
+    "p2-1",
+    "NUCLEO-F411 circuit"
+   ],
+   [
+    "p2-2",
+    "Wireshark capture"
+   ]
+  ],
+  "k": [
+   "STM32 (Cortex-M)",
+   "ENC28J60",
+   "MQTT / TCP-IP",
+   "Non-blocking SPI",
+   "Datalogging"
+  ],
+  "r": "Time-stamped sensor data published over wired Ethernet with MQTT, with sensing and networking running at the same time and no CPU stalls.",
+  "pr": "Places where Wi-Fi is unreliable still need stable telemetry, so the node had to be wired and run 24/7 in electrically noisy environments.",
+  "w": "Bare-metal and FreeRTOS-compatible C drivers written from scratch for a DHT22 sensor, plus an ENC28J60 Ethernet controller on SPI with non-blocking frame processing and an MQTT stack on an STM32."
+ },
+ {
+  "t": "Self-Service Restaurant Kiosk System",
+  "tag": "Embedded Yocto Linux & RAUC",
+  "meta": "Raspberry Pi 3A+ touchscreen kiosk · OTA via RAUC + SSH",
+  "gh": "https://github.com/zen-yocto/rpi-kiosk-yocto-rauc",
+  "b": [
+   "Deployed a full quick-service restaurant app using Flask, SQLite and the Cog kiosk browser on a custom Yocto image.",
+   "Implemented RAUC A/B over-the-air updates with systemd timers and remote SSH debugging."
+  ],
+  "i": [
+   [
+    "p3-1",
+    "Kiosk ordering screen"
+   ],
+   [
+    "p3-2",
+    "Kiosk basket UI"
+   ]
+  ],
+  "k": [
+   "Yocto Linux",
+   "RAUC OTA",
+   "RPi 3A+",
+   "Flask / SQLite"
+  ],
+  "r": "A self-service ordering kiosk on a custom Yocto image with A/B over-the-air updates.",
+  "pr": "A touchscreen kiosk has to boot straight into the ordering app and be updated remotely without risking a broken device.",
+  "w": "Flask and SQLite ordering app with an upsell recommendation engine, shown in the Cog kiosk browser. RAUC A/B updates run on systemd timers, with automated first-boot GitHub provisioning and remote SSH debugging."
+ },
+ {
+  "t": "Arduino Uno PCB & Advanced Custom Clones",
+  "tag": "Multi-layer CAD / EDA",
+  "meta": "KiCAD & OrCAD · DFM / DRC / signal integrity",
+  "b": [
+   "Designed a reference Arduino Uno PCB and an enhanced standalone clone with an I²C EEPROM for non-volatile storage.",
+   "Built a battery-powered clone with extended EEPROM and an onboard real-time clock for low-power, time-stamped datalogging.",
+   "Routed serial buses for signal integrity and produced manufacturing Gerber files following DFM and DRC guidelines."
+  ],
+  "i": [
+   [
+    "p5-1",
+    "Arduino Uno in OrCAD Capture"
+   ],
+   [
+    "p5-2",
+    "Battery-powered clone in KiCAD"
+   ]
+  ],
+  "k": [
+   "Arduino PCB",
+   "ATmega328P",
+   "EEPROM / RTC",
+   "KiCAD & OrCAD",
+   "Gerber / DFM"
+  ],
+  "r": "Battery-powered ATmega328P board with EEPROM and RTC for low-power, time-stamped datalogging, with manufacturing-ready Gerbers.",
+  "pr": "Standalone, low-power datalogging boards need non-volatile storage and reliable timekeeping.",
+  "w": "A reference Arduino Uno PCB and two enhanced clones in KiCAD and OrCAD: one with I²C EEPROM, one battery-powered with extended EEPROM and an onboard RTC, with decoupled power rails and routed serial buses."
+ }
+];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+document.getElementById('projects-list').innerHTML=P.map(p=>`
+<details class="proj" open><summary><span class="tag">${esc(p.tag)}</span><h3>${esc(p.t)}</h3><span class="result">${esc(p.r)}</span><span class="meta">${esc(p.meta)}</span>${p.gh?`<a class="gh" href="${p.gh}" target="_blank" rel="noopener" title="View on GitHub" aria-label="${esc(p.t)} on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>`:""}</summary>
+<div class="body"><div class="rows"><b>Problem</b><span>${esc(p.pr)}</span><b>What I built</b><span>${esc(p.w)}</span><b>Highlights</b><ul>${p.b.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+${p.i.length?`<div class="shots">${p.i.map(([f,a])=>`<img src="asset/${f}.${EXT}" alt="${esc(a)}" loading="lazy" decoding="async">`).join('')}</div>`:''}
+<div class="chips">${p.k.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div></details>`).join('');
 
-			<!-- Work Experience Section -->
-			<section class="mb-16">
-				<h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6 flex items-center gap-2">
-					<i class="fa-solid fa-briefcase"></i> Work Experience
-				</h2>
-
-				<div class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/80">
-					<!-- Header with Hyperlinked Logo -->
-					<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
-						<div class="flex items-center gap-4">
-							<a href="https://www.lumel.com.pl/en/" target="_blank" rel="noopener noreferrer" class="bg-white p-2.5 rounded-xl border border-slate-700 hover:opacity-80 transition flex items-center justify-center w-14 h-14 flex-shrink-0" title="Visit Lumel S.A. Website">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" class="w-full h-auto">
-									<rect width="160" height="50" fill="#ffffff"/>
-									<text x="10" y="36" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="28" fill="#e11d48" letter-spacing="1">LUMEL</text>
-									<circle cx="142" cy="18" r="6" fill="#e11d48"/>
-								</svg>
-							</a>
-							<div>
-								<h3 class="text-xl font-bold text-white flex items-center gap-2">
-									<a href="https://www.lumel.com.pl/en/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition">Lumel S.A.</a>
-								</h3>
-								<p class="text-xs text-slate-400">Zielona Góra, Poland — Industrial Automation Manufacturer</p>
-							</div>
-						</div>
-						<span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-800 text-blue-400 border border-slate-700 w-fit">
-							2022 — 2026
-						</span>
-					</div>
-
-					<!-- Role 1 -->
-					<div class="pt-6 pb-6 border-b border-slate-800/80">
-						<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-							<h4 class="text-base font-semibold text-white">Electronic Design Engineer</h4>
-							<span class="text-xs font-mono text-slate-500">2023 — 2026</span>
-						</div>
-						<ul class="text-xs text-slate-300 space-y-2">
-							<li class="flex items-start gap-2">
-								<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-								<span>Architected firmware and high-reliability PCB hardware designs for commercial industrial automation products and smart grid energy meters deployed across European markets.</span>
-							</li>
-							<li class="flex items-start gap-2">
-								<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-								<span>Integrated industrial telemetry communication protocols including MODBUS, Ethernet (SPI), and MQTT across ARM Cortex-M4 microcontroller platforms.</span>
-							</li>
-							<li class="flex items-start gap-2">
-								<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-								<span>Led hardware and software verification, debugging signal integrity using logic analyzers, oscilloscopes, and automated test fixtures.</span>
-							</li>
-						</ul>
-					</div>
-
-					<!-- Role 2 -->
-					<div class="pt-6">
-						<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-							<h4 class="text-base font-semibold text-white">Production Support (Part Time)</h4>
-							<span class="text-xs font-mono text-slate-500">2022 — 2023</span>
-						</div>
-						<ul class="text-xs text-slate-300 space-y-2">
-							<li class="flex items-start gap-2">
-								<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-								<span>Optimized factory manufacturing processes and quality assurance routines via automated optical verification and functional testing rigs.</span>
-							</li>
-							<li class="flex items-start gap-2">
-								<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-								<span>Validated component redesigns and PCB schematic revisions to prevent production downtime and ensure line yield stability.</span>
-							</li>
-						</ul>
-					</div>
-
-				</div>
-			</section>
-			<!-- Education -->
-			<section class="mb-16">
-				<h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6 flex items-center gap-2">
-					<i class="fa-solid fa-graduation-cap"></i> Education
-				</h2>
-				<div class="space-y-4 mb-8">
-
-					<!-- Master's Degree Card -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-3">
-						<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-							<h4 class="text-base font-semibold text-white flex items-center gap-3">
-								<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0" viewBox="0 0 64 64" role="img" aria-label="University of Zielona Gora logo">
-									<circle cx="32" cy="32" r="30" fill="#0ea5a4" />
-									<text x="32" y="37" text-anchor="middle" font-size="20" font-family="sans-serif" fill="#07203a">UZ</text>
-								</svg>
-								<span>University of Zielona Gora — Zielona Gora, Poland</span>
-							</h4>
-							<span class="text-xs font-mono text-slate-500">2022 — 2023</span>
-						</div>
-						<p class="text-slate-200 font-medium text-sm">Master of Engineering, Management and Production Engineering</p>
-						<p class="text-slate-400 text-sm">Graduated under full sponsorship from Lumel S.A.</p>
-						<p class="text-slate-400 text-sm">Thesis: The use of information technologies for knowledge management in small and medium-sized enterprises.</p>
-
-						<!-- Integrated Flex Course Highlights -->
-						<div class="pt-2">
-							<h4 class="text-xs font-semibold text-blue-400 tracking-wider uppercase mb-2">Relevant Academic Coursework & Applied Real-World Skills:</h4>
-							<ul class="space-y-2 text-xs text-slate-300">
-								<li class="flex items-start gap-2">
-									<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-									<span>
-										<strong class="text-white">Metrology in Mechanical & Electrical:</strong> Instrument calibration and noise reduction for precision sensor signal acquisition.
-									</span>
-								</li>
-								<li class="flex items-start gap-2">
-									<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-									<span>
-										<strong class="text-white">Object-Oriented Programming:</strong> Modular, scalable C/C++ architectures for complex firmware and software interfaces.
-									</span>
-								</li>
-								<li class="flex items-start gap-2">
-									<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-									<span>
-										<strong class="text-white">Computer-Aided Design & Simulation:</strong> 3D CAD modeling of physical hardware housings and mechanical testing rigs.
-									</span>
-								</li>
-								<li class="flex items-start gap-2">
-									<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-									<span>
-										<strong class="text-white">Integrated Management & Decision Systems:</strong> Industrial workflow automation and factory-floor data logging pipelines.
-									</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-
-					<!-- Bachelor's Degree Card -->
-					<div class="p-5 rounded-2xl bg-slate-900/40 border border-slate-800 flex flex-col gap-3">
-						<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-							<h4 class="text-base font-semibold text-white flex items-center gap-3">
-								<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 flex-shrink-0" viewBox="0 0 64 64" role="img" aria-label="Medi-Caps University logo">
-									<rect x="4" y="4" width="56" height="56" rx="8" fill="#f97316" />
-									<text x="32" y="37" text-anchor="middle" font-size="16" font-family="sans-serif" fill="#fff">MC</text>
-								</svg>
-								<span>Medi-Caps University — Indore, India</span>
-							</h4>
-							<span class="text-xs font-mono text-slate-500">2016 — 2020</span>
-						</div>
-						<p class="text-slate-200 font-medium text-sm">Bachelor of Technology, Electrical and Electronics Engineering</p>
-						<p class="text-slate-400 text-sm">Graduated with Honors, specializing in Power Electronics.</p>
-						<p class="text-slate-400 text-sm">Thesis: Observation and control of smart grid using IoT and cloud technology.</p>
-
-						<!-- Integrated Flex Course Highlights -->
-						<div class="pt-2">
-							<h4 class="text-xs font-semibold text-blue-400 tracking-wider uppercase mb-2">Relevant Academic Coursework & Applied Real-World Skills:</h4>
-							<ul class="space-y-2 text-xs text-slate-300">
-								<li class="flex items-start gap-2">
-									<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-									<span>
-										<strong class="text-white">Microprocessors & Microcontrollers:</strong> Bare-metal driver development, interrupt management, and low-level register configuration.
-									</span>
-								</li>
-								<li class="flex items-start gap-2">
-									<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-									<span>
-										<strong class="text-white">Advanced Power Electronics & Electric Drives:</strong> High-efficiency DC-DC converters, motor control switching, and power stage design.
-									</span>
-								</li>
-								<li class="flex items-start gap-2">
-									<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-									<span>
-										<strong class="text-white">Electronic Devices & Digital Circuits:</strong> Discrete PCB component selection, logic analyzer debugging, and circuit protection.
-									</span>
-								</li>
-								<li class="flex items-start gap-2">
-									<i class="fa-solid fa-angle-right text-blue-400 mt-0.5 flex-shrink-0"></i>
-									<span>
-										<strong class="text-white">Linear Control Systems:</strong> Closed-loop feedback controller design (PID) for precise motor speed and power regulation.
-									</span>
-								</li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-			</section>
-
-			<!-- Publications -->
-			<section class="mb-16">
-				<h2 class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-6 flex items-center gap-2">
-					<i class="fa-solid fa-book-open"></i> Publications
-				</h2>
-				<div class="space-y-3">
-					<div class="p-4 rounded-2xl bg-slate-900/40 border border-slate-800">
-						<h3 class="font-semibold text-white">Chapter in Springer Proceedings</h3>
-						<p class="text-slate-400 text-sm">"Observation and Control of Smart Grid Using IoT and Cloud Technology"</p>
-						<div class="mt-3 flex items-center justify-between">
-							<a href="https://link.springer.com/chapter/10.1007/978-981-15-8439-8_46" target="_blank" class="text-xs text-blue-400 underline">View on Springer</a>
-						</div>
-						<div id="pub-abstract-1" class="mt-3 text-slate-300 text-sm">
-							<p>The traditional electrical grids deals with generation, transmission and distribution have one-way communication and are centered around the distributor. They also lack in routing and interconnection of different types of generations which lead to a reduction in the reliability of supply. Hence to overcome this issue we propose the comprehensive architecture of Smart Grid and it’s Observation and control using the Internet of Things (IoT) and Cloud Technology. We have Integrated the different sources of energy (thermal and renewable) in a system and introduces the automatic routing of electric power according to peak and low demand. It also incorporates the smart metering facility using IoT and Cloud Technology. It can gather, send and receive the real-time data, which provide two-way communication of data of power being consumed at customer’s end to the service producer. The whole data can be stored, accessed and analyzed on the very secured and customized API platform. We have built and thoroughly tested demonstration model of our project having Wi-Fi-based smart meter, which helped us to monitor and control the electric power and to enhance the reliability of the system.</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<!-- Footer -->
-			<footer class="text-center text-xs text-slate-500 border-t border-slate-800/80 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-				<p>© 2026 Salil Tiwari</p>
-				<a href="#" class="text-blue-400 hover:underline">Back to top ↑</a>
-			</footer>
-
-		</div>
-
-		<!-- Image modal for enlarging project images -->
-		<div id="img-modal" class="fixed inset-0 bg-black/80 hidden z-50 items-center justify-center p-6">
-			<button id="img-modal-close" class="absolute top-6 right-6 text-white bg-slate-800/60 hover:bg-slate-800 p-2 rounded-full z-60">
-				<i class="fa-solid fa-xmark"></i>
-			</button>
-			<img id="img-modal-img" src="" alt="" class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg">
-		</div>
-
-		<script>
-		(function(){
-			// Open modal when any project image is clicked
-			function openModal(src, alt) {
-				var modal = document.getElementById('img-modal');
-				var img = document.getElementById('img-modal-img');
-				img.src = src;
-				img.alt = alt || '';
-				modal.classList.remove('hidden');
-				modal.classList.add('flex');
-			}
-
-			function closeModal() {
-				var modal = document.getElementById('img-modal');
-				var img = document.getElementById('img-modal-img');
-				img.src = '';
-				modal.classList.add('hidden');
-				modal.classList.remove('flex');
-			}
-
-			// Attach click handlers to images inside project cards/details
-			document.querySelectorAll('.project-card img, .project-details img').forEach(function(img){
-				img.style.cursor = 'zoom-in';
-				img.addEventListener('click', function(e){
-					openModal(img.src, img.alt);
-				});
-			});
-
-			// Close handlers
-			var modal = document.getElementById('img-modal');
-			var closeBtn = document.getElementById('img-modal-close');
-			if (modal) {
-				modal.addEventListener('click', function(e){
-					// close when clicking outside the image
-					if (e.target === modal) closeModal();
-				});
-			}
-			if (closeBtn) closeBtn.addEventListener('click', closeModal);
-			document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
-		})();
-		</script>
-
-	</body>
+const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('vis',e.isIntersecting)),{threshold:.3,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.shots img').forEach(i=>io.observe(i));
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const cu=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;cu.unobserve(e.target);const n=e.target,to=+n.dataset.to,d=+(n.dataset.dec||0),pre=n.dataset.pre||'',suf=n.dataset.suf||'',t0=performance.now();
+const f=t=>{const k=Math.min((t-t0)/1100,1),v=to*(1-Math.pow(1-k,3));n.textContent=pre+v.toFixed(d)+suf;if(k<1)requestAnimationFrame(f)};if(!rm)requestAnimationFrame(f)}),{threshold:.6});
+document.querySelectorAll('.num').forEach(n=>cu.observe(n));
+(function(){
+const box=document.getElementById('traces'),main=document.querySelector('main');
+const SIL='#cdd3db',GOLD='#dfb35a';
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+let last='';
+function build(){
+ box.style.display='none';const H=document.documentElement.scrollHeight,vw=document.documentElement.clientWidth;box.style.display='block';box.style.height=H+'px';
+ const key=vw+'x'+Math.round(H/40);if(key===last)return;last=key;
+ const R=rng(vw*7+3),rr=(a,b)=>a+(b-a)*R(),pick=a=>a[Math.floor(R()*a.length)];
+ const mr=main.getBoundingClientRect(),L=mr.left+24,Rt=mr.right-24,gl=L,wide=gl<70;
+ let o='',sy='',pl='',n=0,cnt=0;
+ const path=(d,col,w,op,p)=>{o+=`<path class="t" d="${d}" stroke="${col}" stroke-width="${w}" opacity="${op}"/>`;if(p){pl+=`<path class="pl" pathLength="1000" d="${d}" style="--dur:${rr(7,15).toFixed(1)}s;--dl:-${rr(0,12).toFixed(1)}s"/>`}};
+ const ring=(x,y,c,r)=>{sy+=`<circle cx="${x}" cy="${y}" r="${r||4.5}" fill="#fff" stroke="${c}" stroke-width="2"/>`};
+ const sym=(x,y,c)=>{const t=pick(['R','C','D']),id=++cnt,st=`fill="none" stroke="${c==GOLD?'#c99a3e':'#aeb6c1'}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"`;
+  let lab=t=='R'?`R${id} ${pick(['10k','4k7','220','1M'])}`:t=='C'?`C${id} ${pick(['100n','10u','22p'])}`:`D${id} ${pick(['1N4148','LED','BAT54'])}`;
+  
+  if(t=='R')sy+=`<path ${st} d="M${x} ${y-20}V${y-12}l5 2.5l-10 5l10 5l-10 5l5 2.5V${y+20}"/>`;
+  else if(t=='C')sy+=`<path ${st} d="M${x} ${y-20}V${y-3}M${x} ${y+3}V${y+20}M${x-9} ${y-3}H${x+9}M${x-9} ${y+3}H${x+9}"/>`;
+  else sy+=`<path ${st} d="M${x} ${y-20}V${y-8}M${x} ${y+8}V${y+20}M${x-7} ${y-8}H${x+7}L${x} ${y+6}ZM${x-7} ${y+6}H${x+7}"/>`;
+  const ln=q=>q.length*5.9;let dir=x>vw/2?-1:1;
+  if(!wide){const inw=x<vw/2?1:-1,room=inw>0?L-8-(x+14):(x-14)-(Rt+8),out=inw>0?x-22:vw-8-(x+14);
+   if(ln(lab)<=room)dir=inw;else if(ln(lab)<=out)dir=-inw;else{lab=lab.split(' ')[0];dir=ln(lab)<=room?inw:-inw}}
+  sy+=`<text x="${x+dir*14}" y="${y+3}" text-anchor="${dir>0?'start':'end'}" font-size="9.5" fill="#97a1ae">${lab}</text>`};
+ const gnd=(x,y,c)=>{sy+=`<path fill="none" stroke="${c}" stroke-width="1.8" stroke-linecap="round" d="M${x} ${y}V${y+8}M${x-9} ${y+8}H${x+9}M${x-6} ${y+12}H${x+6}M${x-3} ${y+16}H${x+3}"/>`};
+ function route(x,y0,y1,rails,col,pulse,wd){let y=y0,d=`M${x} ${y}`,sx=[];
+  while(y<y1){const y2=Math.min(y1,y+rr(70,330));if(y2-y>150&&R()<.4){const m=(y+y2)/2;d+=`V${m-20}M${x} ${m+20}V${y2}`;sx.push([x,m])}else d+=`V${y2}`;y=y2;if(y>=y1)break;
+   if(R()<.78&&rails.length>1){const tx=pick(rails);if(tx!==x){const dx=tx-x;d+=`l${dx} ${Math.abs(dx)}`;y+=Math.abs(dx);x=tx}}}
+  path(d,col,wd||2.2,col==SIL?.95:.8,pulse&&y0<700);sx.forEach(([a,b])=>sym(a,b,col));
+  if(y0>30)ring(x,y0,col==SIL?'#b3bcc7':'#d1a13f');if(R()<.5)gnd(x,y1,col==SIL?'#aeb6c1':'#c99a3e');else ring(x,y1,col==SIL?'#b3bcc7':'#d1a13f',3.6)}
+ // rails in the gutters (or anywhere on narrow screens)
+ const sides=[];
+ if(!wide){const k=Math.min(5,Math.floor((gl-14)/20));[1,-1].forEach(s=>{const base=s>0?gl-26:vw-gl+26,rails=[];for(let i=0;i<k;i++)rails.push(Math.round(base-s*i*20));sides.push(rails)})}
+ else{const rails=[];for(let i=0;i<6;i++)rails.push(Math.round(rr(14,vw-14)/12)*12);sides.push(rails)}
+ sides.forEach(rails=>{rails.forEach(x0=>{const a=R()<.55?-rr(0,60):rr(0,H*.55),b=Math.min(H,a+rr(H*.35,H));route(x0,Math.max(0,a),b,rails,R()<.72?SIL:GOLD,false,wide?1.8:2.2)})});
+ // hero bus
+ if(vw>=900){const ic=document.querySelector('#impact .card'),by=ic?Math.round(ic.getBoundingClientRect().top+scrollY+14):528,bx=Rt-330;for(let i=0;i<6;i++){const x=bx+i*9;const d=`M${x} 64V150l56 56V300l-40 40V${by}`;path(d,i%3==2?GOLD:SIL,2,.95,false);ring(x,64,i%3==2?'#d1a13f':'#b3bcc7',3.6)}}
+ // stubs from side rails into the cards
+ if(!wide)main.querySelectorAll('.card,.proj').forEach(c=>{const r=c.getBoundingClientRect(),top=r.top+scrollY;
+  [[r.left<=L+6,-1,L],[r.right>=Rt-6,1,Rt]].forEach(([ok,s,edge])=>{if(!ok||R()<.3)return;const m=R()<.5?1:2;for(let k=0;k<m;k++){const y=top+rr(.18,.82)*r.height,xr=edge+s*(gl>=70?rr(26,Math.min(gl-14,100)):30),col=R()<.7?SIL:GOLD;
+   path(`M${xr} ${y}L${xr-s*16} ${y+16}H${edge}`,col,2,.9,false);ring(xr,y,col==SIL?'#b3bcc7':'#d1a13f',3.6)}})});
+ // drawing frame
+ let fr='';if(vw>=700){fr=`<path class="t" d="M7 60V${H-7}H${vw-7}V60" stroke="#c4cbd4" stroke-width="1.2" opacity=".9"/>`;for(let y=120,i=0;y<H-20;y+=180,i++){fr+=`<path class="t" d="M7 ${y}H15M${vw-15} ${y}H${vw-7}" stroke="#c4cbd4"/><text x="18" y="${y+4}" font-size="10" fill="#9aa4b1">${String.fromCharCode(65+i%26)}</text><text x="${vw-26}" y="${y+4}" font-size="10" fill="#9aa4b1">${i+1}</text>`}}
+ box.innerHTML=`<svg width="${vw}" height="${H}" viewBox="0 0 ${vw} ${H}">${fr}${o}${sy}</svg>`}
+let tm;const again=()=>{clearTimeout(tm);tm=setTimeout(build,200)};
+addEventListener('resize',()=>{last='';again()});addEventListener('load',()=>{last='';build()});
+if(window.ResizeObserver)new ResizeObserver(()=>{again()}).observe(main);
+document.fonts&&document.fonts.ready.then(()=>{last='';build()});build()})();
+const bar=document.getElementById('bar');
+addEventListener('scroll',()=>{const h=document.documentElement;bar.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight||1))+')'},{passive:true});
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card,.proj');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')},{passive:true});
+const lb=document.getElementById('lb'),li=document.getElementById('lb-img');
+document.addEventListener('click',e=>{
+ const t=e.target;
+ if(t.matches('.shots img')){li.src=t.currentSrc||t.src;li.alt=t.alt;lb.showModal()}
+ else if(t===lb||t===li)lb.close()
+});
+</script>
+</body>
 </html>
