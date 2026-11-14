@@ -32,7 +32,7 @@
 --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-html,body{overflow-x:hidden}
+html,body{overflow-x:clip}
 h1,h3,.meta,.lede{overflow-wrap:break-word}
 img{max-width:100%}
 body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
@@ -90,7 +90,7 @@ h1{font-size:clamp(2.8rem,9vw,5.6rem);line-height:1;letter-spacing:-.04em;margin
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:12px;margin-top:18px}
 .shots{perspective:900px}
 .shots img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--bg);cursor:zoom-in;
-opacity:0;transform:translateX(-140px) rotate(-5deg) scale(.9);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1),filter .2s;will-change:transform,opacity}
+opacity:0;transform:translateX(-140px) rotate(-5deg) scale(.9);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1),filter .2s}
 .shots img:nth-child(even){transform:translateX(140px) rotate(5deg) scale(.9)}
 .shots img.vis{opacity:1;transform:none}
 .shots img:hover{filter:brightness(1.1)}
@@ -316,6 +316,10 @@ body{background:transparent}
 #traces svg{display:block}
 #traces .t{fill:none;stroke-linejoin:round;stroke-linecap:round}
 #traces .pl{fill:none;stroke:#10b981;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:24 976;animation:flow var(--dur,9s) linear infinite;animation-delay:var(--dl,0s)}
+@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}
+#traces .pls{position:absolute;left:0;top:0}
+#traces .pl{fill:none;stroke:#10b981;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:24 976;animation:flow var(--dur,9s) linear infinite;animation-delay:var(--dl,0s)}
+#traces .pl.off{display:none}
 @keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-1000}}
 #traces text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 footer.tb{display:grid;grid-template-columns:1.1fr 2fr 1fr auto;padding:0;border:1.5px solid #aeb6c1;background:#fff;color:var(--text);gap:0;margin-top:72px}
@@ -634,7 +638,8 @@ function build(){
  const R=rng(vw*7+3),rr=(a,b)=>a+(b-a)*R(),pick=a=>a[Math.floor(R()*a.length)];
  const mr=main.getBoundingClientRect(),L=mr.left+24,Rt=mr.right-24,gl=L,wide=gl<70;
  let o='',sy='',pl='',n=0,cnt=0;
- const path=(d,col,w,op,p)=>{o+=`<path class="t" d="${d}" stroke="${col}" stroke-width="${w}" opacity="${op}"/>`;if(p){pl+=`<path class="pl" pathLength="1000" d="${d}" style="--dur:${rr(7,15).toFixed(1)}s;--dl:-${rr(0,12).toFixed(1)}s"/>`}};
+ const path=(d,col,w,op)=>{o+=`<path class="t" d="${d}" stroke="${col}" stroke-width="${w}" opacity="${op}"/>`};
+ const pulseOn=(d,a,b)=>{pl+=`<path class="pl" pathLength="1000" data-a="${Math.round(a)}" data-b="${Math.round(b)}" d="${d}" style="--dur:${rr(7,15).toFixed(1)}s;--dl:-${rr(0,12).toFixed(1)}s"/>`};
  const ring=(x,y,c,r)=>{sy+=`<circle cx="${x}" cy="${y}" r="${r||4.5}" fill="#fff" stroke="${c}" stroke-width="2"/>`};
  const sym=(x,y,c)=>{const t=pick(['R','C','D']),id=++cnt,st=`fill="none" stroke="${c==GOLD?'#c99a3e':'#aeb6c1'}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"`;
   let lab=t=='R'?`R${id} ${pick(['10k','4k7','220','1M'])}`:t=='C'?`C${id} ${pick(['100n','10u','22p'])}`:`D${id} ${pick(['1N4148','LED','BAT54'])}`;
@@ -647,32 +652,35 @@ function build(){
    if(ln(lab)<=room)dir=inw;else if(ln(lab)<=out)dir=-inw;else{lab=lab.split(' ')[0];dir=ln(lab)<=room?inw:-inw}}
   sy+=`<text x="${x+dir*14}" y="${y+3}" text-anchor="${dir>0?'start':'end'}" font-size="9.5" fill="#97a1ae">${lab}</text>`};
  const gnd=(x,y,c)=>{sy+=`<path fill="none" stroke="${c}" stroke-width="1.8" stroke-linecap="round" d="M${x} ${y}V${y+8}M${x-9} ${y+8}H${x+9}M${x-6} ${y+12}H${x+6}M${x-3} ${y+16}H${x+3}"/>`};
- function route(x,y0,y1,rails,col,pulse,wd){let y=y0,d=`M${x} ${y}`,sx=[];
-  while(y<y1){const y2=Math.min(y1,y+rr(70,330));if(y2-y>150&&R()<.4){const m=(y+y2)/2;d+=`V${m-20}M${x} ${m+20}V${y2}`;sx.push([x,m])}else d+=`V${y2}`;y=y2;if(y>=y1)break;
-   if(R()<.78&&rails.length>1){const tx=pick(rails);if(tx!==x){const dx=tx-x;d+=`l${dx} ${Math.abs(dx)}`;y+=Math.abs(dx);x=tx}}}
-  path(d,col,wd||2.2,col==SIL?.95:.8,pulse&&y0<700);sx.forEach(([a,b])=>sym(a,b,col));
-  if(y0>30)ring(x,y0,col==SIL?'#b3bcc7':'#d1a13f');if(R()<.5)gnd(x,y1,col==SIL?'#aeb6c1':'#c99a3e');else ring(x,y1,col==SIL?'#b3bcc7':'#d1a13f',3.6)}
+ function route(x,y0,y1,rails,col,pulse,wd){const xs=x;let y=y0,d=`M${x} ${y}`,sx=[],sg=[];
+  while(y<y1){const y2=Math.min(y1,y+rr(70,330)),sv=`V${y2}`;sg.push([x,y,sv,y2-y]);if(y2-y>150&&R()<.4){const m=(y+y2)/2;d+=`V${m-20}M${x} ${m+20}V${y2}`;sx.push([x,m])}else d+=sv;y=y2;if(y>=y1)break;
+   if(R()<.78&&rails.length>1){const tx=pick(rails);if(tx!==x){const dx=tx-x,dj=Math.abs(dx),sj=`l${dx} ${dj}`;sg.push([x,y,sj,dj]);d+=sj;y+=dj;x=tx}}}
+  path(d,col,wd||2.2,col==SIL?.95:.8);
+  if(pulse&&sg.length){let k=0;while(k<sg.length){let acc=0,e=k;while(e<sg.length&&acc<850){acc+=sg[e][3];e++}if(R()<.7)pulseOn(`M${sg[k][0]} ${sg[k][1]}`+sg.slice(k,e).map(q=>q[2]).join(''),sg[k][1],sg[k][1]+acc);k=e}}
+  sx.forEach(([a,b])=>sym(a,b,col));
+  if(y0>30)ring(xs,y0,col==SIL?'#b3bcc7':'#d1a13f');if(R()<.5)gnd(x,y,col==SIL?'#aeb6c1':'#c99a3e');else ring(x,y,col==SIL?'#b3bcc7':'#d1a13f',3.6)}
  // rails in the gutters (or anywhere on narrow screens)
  const sides=[];
  if(!wide){const k=Math.min(5,Math.floor((gl-14)/20));[1,-1].forEach(s=>{const base=s>0?gl-26:vw-gl+26,rails=[];for(let i=0;i<k;i++)rails.push(Math.round(base-s*i*20));sides.push(rails)})}
- else{const rails=[];for(let i=0;i<6;i++)rails.push(Math.round(rr(14,vw-14)/12)*12);sides.push(rails)}
- sides.forEach(rails=>{rails.forEach(x0=>{const a=R()<.55?-rr(0,60):rr(0,H*.55),b=Math.min(H,a+rr(H*.35,H));route(x0,Math.max(0,a),b,rails,R()<.72?SIL:GOLD,false,wide?1.8:2.2)})});
+ else{const e=vw>=700?[11,18]:[6,13];sides.push([e[0],e[1]],[vw-e[1],vw-e[0]]);const rails=[];for(let i=0;i<6;i++)rails.push(Math.round(rr(14,vw-14)/12)*12);sides.push(rails)}
+ sides.forEach((rails,si)=>{const edge=wide&&si<2;rails.forEach(x0=>{const a=edge?-10:(R()<.55?-rr(0,60):rr(0,H*.55)),b=edge?H:Math.min(H,a+rr(H*.35,H));route(x0,Math.max(0,a),b,rails,edge?SIL:(R()<.72?SIL:GOLD),edge||!wide,wide?(edge?1.8:1.4):2.2)})});
  // hero bus
- if(vw>=900){const ic=document.querySelector('#impact .card'),by=ic?Math.round(ic.getBoundingClientRect().top+scrollY+14):528,bx=Rt-330;for(let i=0;i<6;i++){const x=bx+i*9;const d=`M${x} 64V150l56 56V300l-40 40V${by}`;path(d,i%3==2?GOLD:SIL,2,.95,false);ring(x,64,i%3==2?'#d1a13f':'#b3bcc7',3.6)}}
+ if(vw>=900){const ic=document.querySelector('#impact .card'),by=ic?Math.round(ic.getBoundingClientRect().top+scrollY+14):528,bx=Rt-330;for(let i=0;i<6;i++){const x=bx+i*9;const d=`M${x} 64V150l56 56V300l-40 40V${by}`;path(d,i%3==2?GOLD:SIL,2,.95);if(i==1||i==4)pulseOn(d,64,by);ring(x,64,i%3==2?'#d1a13f':'#b3bcc7',3.6)}}
  // stubs from side rails into the cards
  if(!wide)main.querySelectorAll('.card,.proj').forEach(c=>{const r=c.getBoundingClientRect(),top=r.top+scrollY;
   [[r.left<=L+6,-1,L],[r.right>=Rt-6,1,Rt]].forEach(([ok,s,edge])=>{if(!ok||R()<.3)return;const m=R()<.5?1:2;for(let k=0;k<m;k++){const y=top+rr(.18,.82)*r.height,xr=edge+s*(gl>=70?rr(26,Math.min(gl-14,100)):30),col=R()<.7?SIL:GOLD;
    path(`M${xr} ${y}L${xr-s*16} ${y+16}H${edge}`,col,2,.9,false);ring(xr,y,col==SIL?'#b3bcc7':'#d1a13f',3.6)}})});
  // drawing frame
  let fr='';if(vw>=700){fr=`<path class="t" d="M7 60V${H-7}H${vw-7}V60" stroke="#c4cbd4" stroke-width="1.2" opacity=".9"/>`;for(let y=120,i=0;y<H-20;y+=180,i++){fr+=`<path class="t" d="M7 ${y}H15M${vw-15} ${y}H${vw-7}" stroke="#c4cbd4"/><text x="18" y="${y+4}" font-size="10" fill="#9aa4b1">${String.fromCharCode(65+i%26)}</text><text x="${vw-26}" y="${y+4}" font-size="10" fill="#9aa4b1">${i+1}</text>`}}
- box.innerHTML=`<svg width="${vw}" height="${H}" viewBox="0 0 ${vw} ${H}">${fr}${o}${sy}</svg>`}
+ box.innerHTML=`<svg width="${vw}" height="${H}" viewBox="0 0 ${vw} ${H}">${fr}${o}${sy}</svg><svg class="pls" width="${vw}" height="${H}" viewBox="0 0 ${vw} ${H}">${pl}</svg>`;pz=[...box.querySelectorAll('.pl')];cull()}
+let pz=[],cq=0;const cull=()=>{cq=0;const y=scrollY,h=innerHeight,c=y+h/2,on=pz.filter(e=>+e.dataset.a<=y+h+300&&+e.dataset.b>=y-300).sort((p,q)=>Math.abs((+p.dataset.a+ +p.dataset.b)/2-c)-Math.abs((+q.dataset.a+ +q.dataset.b)/2-c)).slice(0,6);pz.forEach(e=>e.classList.toggle('off',!on.includes(e)))};
+addEventListener('scroll',()=>{if(!cq)cq=requestAnimationFrame(cull)},{passive:true});
 let tm;const again=()=>{clearTimeout(tm);tm=setTimeout(build,200)};
 addEventListener('resize',()=>{last='';again()});addEventListener('load',()=>{last='';build()});
 if(window.ResizeObserver)new ResizeObserver(()=>{again()}).observe(main);
 document.fonts&&document.fonts.ready.then(()=>{last='';build()});build()})();
 const bar=document.getElementById('bar');
 addEventListener('scroll',()=>{const h=document.documentElement;bar.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight||1))+')'},{passive:true});
-document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card,.proj');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')},{passive:true});
 const lb=document.getElementById('lb'),li=document.getElementById('lb-img');
 document.addEventListener('click',e=>{
  const t=e.target;
