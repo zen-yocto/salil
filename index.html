@@ -330,6 +330,10 @@ footer.tb b{font:600 .88rem var(--mono)}
 footer.tb a{color:#047857;font-weight:600;text-decoration:none}
 @media(max-width:700px){footer.tb{grid-template-columns:1fr 1fr}footer.tb>*{border-bottom:1px solid var(--line)}}
 .nav{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#fff!important}
+
+/* experience: use the full card width, tighter bullets, dates stack on phones */
+.job ul{margin:8px 0 0;padding-left:18px}
+@media(max-width:700px){.job{grid-template-columns:1fr;gap:2px;padding:16px 0}.job .date{order:-1;text-align:left;white-space:normal}}
 </style>
 </head>
 <body id="top">
